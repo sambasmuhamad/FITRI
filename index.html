@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#3c4a1e">
+    <meta name="description" content="Undangan Pernikahan Muhamad Sambas & Fitria Tri Suzana">
     <title>Undangan Pernikahan - Sambas & Fitri</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +26,7 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-        /* Latar Belakang Tekstur Doff & Batik Kawung */
+        /* Latar Belakang Tekstur Doff & Batik Kawung yang Aman untuk Performa iOS */
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: var(--text-dark); 
@@ -33,6 +34,7 @@
             line-height: 1.6; 
             width: 100%;
             position: relative;
+            background-color: var(--bg-color);
         }
         
         body::before {
@@ -53,13 +55,14 @@
         
         .script-guest-name { 
             font-family: 'Great Vibes', cursive; 
-            font-size: clamp(2rem, 6vw, 3.5rem); 
+            font-size: clamp(2rem, 8vw, 3.5rem); 
             font-weight: 400; 
             word-wrap: break-word;
+            word-break: break-word;
             line-height: 1.2;
         }
 
-        /* SAMPUL DEPAN (FIX 100DVH) */
+        /* SAMPUL DEPAN (Fix Pegunungan) */
         .welcome-screen {
             position: fixed; top: 0; left: 0; width: 100%; 
             height: 100vh; height: 100dvh; 
@@ -67,8 +70,8 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
             background-color: var(--text-dark); 
-            background-image: linear-gradient(rgba(42, 51, 34, 0.3), rgba(42, 51, 34, 0.6)), 
-                              url('https://images.unsplash.com/photo-1580910459816-646f8eb7d620?q=80&w=1920&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(42, 51, 34, 0.4), rgba(42, 51, 34, 0.6)), 
+                              url('https://cdn.pixabay.com/photo/2017/05/08/19/35/mountains-2296434_1280.jpg');
             background-size: cover; background-position: center center; background-repeat: no-repeat;
         }
         .welcome-screen.slide-up { transform: translateY(-100vh); transform: translateY(-100dvh); }
@@ -76,7 +79,7 @@
         .welcome-content { padding: 20px; animation: fadeIn 1.8s ease-in; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 90vw; }
         .welcome-content .line-1 { font-size: clamp(0.9rem, 2.5vw, 1.2rem); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px; opacity: 0.9; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);}
         .welcome-content .line-2 { font-size: clamp(1rem, 2.5vw, 1.3rem); opacity: 0.9; margin-bottom: 25px; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);}
-        .welcome-content h1 { font-size: clamp(3rem, 12vw, 6rem); color: var(--accent); font-style: italic; margin-bottom: 30px; text-shadow: 3px 3px 15px rgba(0,0,0,0.8); line-height: 1.1; word-wrap: break-word;}
+        .welcome-content h1 { font-size: clamp(3.2rem, 12vw, 6rem); color: var(--accent); font-style: italic; margin-bottom: 30px; text-shadow: 3px 3px 15px rgba(0,0,0,0.8); line-height: 1.1; word-wrap: break-word;}
         
         .welcome-input-group {
             background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -102,18 +105,18 @@
         .hero { 
             height: 100vh; height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
             color: var(--text-light); padding: 20px; background-color: var(--text-dark);
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), 
-                              url('https://images.unsplash.com/photo-1580910459816-646f8eb7d620?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), 
+                              url('https://cdn.pixabay.com/photo/2017/05/08/19/35/mountains-2296434_1280.jpg');
+            background-size: cover; background-position: center center; background-attachment: fixed;
         }
-        .hero h1 { font-size: clamp(3rem, 12vw, 6rem); margin: 10px 0; font-style: italic; text-shadow: 3px 3px 10px rgba(0,0,0,0.6); line-height: 1.1; }
+        .hero h1 { font-size: clamp(3.2rem, 12vw, 6rem); margin: 10px 0; font-style: italic; text-shadow: 3px 3px 10px rgba(0,0,0,0.6); line-height: 1.1; }
         .hero p { font-size: clamp(0.9rem, 3vw, 1.2rem); letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); }
         .guest-greeting { margin-bottom: 25px; padding: 15px 25px; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 10px 20px rgba(0,0,0,0.3); max-width: 90vw; }
 
         /* TOMBOL AUDIO */
         .audio-btn { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: var(--primary); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; border: 2px solid var(--accent); animation: pulse 2s infinite; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.4);}
 
-        /* KONTEN SECTION UMUM */
+        /* SECTION UMUM */
         section { padding: 90px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
         .section-title { font-size: clamp(2.2rem, 6vw, 3.5rem); color: var(--primary); margin-bottom: 15px; }
         .divider { width: 60px; height: 2px; background-color: var(--accent); margin: 0 auto 30px auto; }
@@ -124,13 +127,12 @@
         .person img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid var(--secondary); margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
         .ampersand { color: var(--accent); font-size: clamp(3rem, 8vw, 4rem); margin: 0 15px; }
 
-        /* COUNTDOWN FULL WIDTH */
+        /* COUNTDOWN */
         .countdown-container { background-color: var(--primary); color: white; padding: 70px 20px; width: 100vw; margin-left: calc(50% - 50vw); }
         .countdown { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 0 auto; }
         .countdown div { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 20px 10px; border-radius: 12px; min-width: 80px; flex: 1 1 100px; border: 1px solid rgba(255,255,255,0.2); }
         .countdown span { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: bold; font-family: 'Playfair Display', serif; }
         
-        /* TOMBOL KALENDER */
         .calendar-btn-wrapper { margin-top: 35px; }
         .btn-calendar {
             display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -156,17 +158,21 @@
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: #888; transition: 0.3s; }
         .close-modal:hover { color: var(--text-dark); }
 
-        /* KARTU & MAPS */
-        .event-card { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(5px); padding: 40px 20px; border-radius: 15px; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.05); } 
-        .map-container iframe { width: 100%; height: 300px; border: none; border-radius: 10px; margin-top: 20px; background-color: #f0f0f0; }
-        
+        /* EVENT STYLES */
+        .event-card-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
+        .event-card { background: rgba(255, 255, 255, 0.95); padding: 35px 20px; border-radius: 15px; border: 1px solid #eaeaea; box-shadow: 0 10px 30px rgba(0,0,0,0.05); flex: 1 1 320px; max-width: 450px; } 
+        .event-card h3 { color: var(--primary); font-size: 1.6rem; margin-bottom: 15px; border-bottom: 1px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+        .event-card p { margin-bottom: 10px; }
+        .map-container iframe { width: 100%; height: 350px; border: none; border-radius: 10px; margin-top: 20px; background-color: #e0e0e0; }
+
+        /* GALLERY */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 35px; }
         .gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; cursor: pointer; }
         .gallery img:hover { transform: scale(1.03); filter: sepia(0) brightness(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
-        /* WEDDING GIFT STYLES */
+        /* WEDDING GIFT */
         .gift-container { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 30px; }
-        .gift-card { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(5px); padding: 35px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); width: 100%; max-width: 450px; border-top: 6px solid var(--accent); text-align: left; }
+        .gift-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 35px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); width: 100%; max-width: 450px; border-top: 6px solid var(--accent); text-align: left; }
         .bank-logo { height: 35px; object-fit: contain; margin: 0 0 20px 0; display: block; max-width: 100%; }
         .rek-number { font-size: clamp(1.4rem, 5vw, 1.8rem); font-family: 'Playfair Display', serif; font-weight: bold; color: var(--text-dark); letter-spacing: 2px; margin-bottom: 5px; word-break: break-all; }
         .rek-name { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
@@ -175,8 +181,8 @@
         .btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 14px 25px; border-radius: 25px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); width: 100%; max-width: 350px; }
         .btn-wa:hover { background-color: #1ebe5d; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
 
-        /* RSVP & GUESTBOOK */
-        .rsvp-form { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(5px); padding: 35px 25px; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); max-width: 600px; margin: 0 auto; text-align: left; border-top: 6px solid var(--primary); }
+        /* RSVP FORM */
+        .rsvp-form { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); padding: 35px 25px; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); max-width: 600px; margin: 0 auto; text-align: left; border-top: 6px solid var(--primary); }
         .input-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); font-size: 0.9rem; }
         input[type="text"], select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Montserrat', sans-serif; background-color: #fafafa; font-size: 16px; outline: none; transition: 0.3s;}
@@ -184,10 +190,10 @@
         button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; margin-top: 10px; }
         button[type="submit"]:hover { background-color: var(--text-dark); }
         
-        /* GUESTBOOK & PAGINATION STYLES */
+        /* GUESTBOOK & PAGINATION */
         .guestbook-wrapper { max-width: 600px; margin: 30px auto 0; text-align: left;}
         .guestbook-container { max-height: auto; padding-right: 5px; }
-        .guest-card { background: rgba(255, 255, 255, 0.92); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease;}
+        .guest-card { background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease;}
         .guest-card h4 { color: var(--text-dark); margin-bottom: 5px; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;}
         .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; }
         .badge-hadir { background-color: #e8f5e9; color: #2e7d32; }
@@ -200,17 +206,19 @@
         .pagination-controls button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.7; }
         .page-info { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); background: rgba(255,255,255,0.7); padding: 5px 12px; border-radius: 15px;}
 
+        /* ANIMASI REVEAL */
         .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 141, 85, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(181, 141, 85, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 141, 85, 0); } }
 
-        /* Media Queries Mobile Responsive */
+        /* RESPONSIVE MOBILE */
         @media (max-width: 768px) {
             section { padding: 60px 20px; }
             .couple-wrapper { flex-direction: column; }
             .ampersand { transform: rotate(0deg); margin: 5px 0; }
             .countdown div { min-width: 70px; padding: 10px 5px; flex: 1 1 calc(50% - 15px); }
+            .event-card { flex: 1 1 100%; }
             .map-container iframe { height: 250px; }
             .gallery img { height: 250px; }
         }
@@ -249,15 +257,15 @@
         <p style="font-style: italic; color: #666; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">"Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan."</p>
         <div class="couple-wrapper">
             <div class="person">
-                <img src="https://drive.google.com/thumbnail?id=1LsHnHK78WfB_9eEKDN4RxXPNhf23njyF&sz=w1000-h2000&auto=format&fit=crop" alt="Sambas" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop" alt="Sambas" loading="lazy">
                 <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Sambas</h3>
-                <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putra dari Bapak Fulan & Ibu Fulanah</p>
+                <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putra dari Bapak Muhamad & Ibu Siti</p>
             </div>
             <h1 class="serif ampersand">&</h1>
             <div class="person">
-                <img src="https://drive.google.com/thumbnail?id=1MGIbLMLjRKKFja2C5nCkYqJ_CaQVJKsW&sz=w1000-h2000&auto=format&fit=crop" alt="Fitri" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop" alt="Fitri" loading="lazy">
                 <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Fitri</h3>
-                <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putri dari Bapak Fulan & Ibu Fulanah</p>
+                <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putri dari Bapak Tri & Ibu Suzana</p>
             </div>
         </div>
     </section>
@@ -285,7 +293,7 @@
             <h3 class="serif" id="modal-title">Ingatkan Saya</h3>
             <p style="font-size: 0.85rem; margin-bottom: 20px; color: #666;">Pilih jenis kalender ponsel Anda untuk menyimpan jadwal acara.</p>
             <div class="calendar-options">
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Sambas+%26+Fitri&dates=20260601T020000Z/20260601T070000Z&details=Mohon+doa+restu+dan+kehadirannya+di+hari+bahagia+kami.&location=Desa+Jagara,+Kuningan,+Jawa+Barat" target="_blank" rel="noopener noreferrer" class="cal-opt">Google Calendar</a>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Sambas+%26+Fitri&dates=20260601T010000Z/20260601T070000Z&details=Mohon+doa+restu+dan+kehadirannya+di+hari+bahagia+kami.&location=Desa+Jagara,+Kuningan,+Jawa+Barat" target="_blank" rel="noopener noreferrer" class="cal-opt">Google Calendar</a>
                 <a href="javascript:void(0)" onclick="downloadICS()" class="cal-opt">Apple / Outlook (iCal)</a>
             </div>
         </div>
@@ -294,17 +302,26 @@
     <section class="reveal" id="event">
         <h2 class="section-title">Waktu & Tempat</h2>
         <div class="divider"></div>
-        <div class="event-card">
-            <h3 class="serif" style="font-size: 1.6rem; color: var(--primary); margin-bottom: 10px;">Resepsi Pernikahan</h3>
-            <p style="font-size: 1rem; color: #444;"><strong>Senin, 1 Juni 2026</strong></p>
-            <p style="font-size: 1rem; color: #444;">Pukul 09.00 WIB - Selesai</p>
-            <p style="margin-top: 15px; font-size: 1rem; color: #444;">
-                <strong>Kediaman Mempelai Wanita</strong><br>
-                Jl. Lkr. Waduk Darma Jl. Desa Jagara, RT.01/RW.01, Dusun Manis, Darma, Kec. Darma, Kab. Kuningan, Jawa Barat 45562
-            </p>
-            <div class="map-container">
-                <iframe src="https://maps.google.com/maps?q=Desa%20Jagara,%20Darma,%20Kuningan,%20Jawa%20Barat&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Pernikahan"></iframe>
+        <div class="event-card-container">
+            <div class="event-card">
+                <h3 class="serif">Akad Nikah</h3>
+                <p><strong>Senin, 1 Juni 2026</strong></p>
+                <p>Pukul 08.00 WIB</p>
+                <p>Kediaman Mempelai Wanita</p>
             </div>
+            <div class="event-card">
+                <h3 class="serif">Resepsi Pernikahan</h3>
+                <p><strong>Senin, 1 Juni 2026</strong></p>
+                <p>Pukul 09.00 WIB - Selesai</p>
+                <p>Kediaman Mempelai Wanita</p>
+            </div>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.95rem; color: #444;">
+            <strong>Lokasi Acara:</strong><br>
+            Jl. Lkr. Waduk Darma, Desa Jagara, RT.01/RW.01, Dusun Manis, Darma, Kec. Darma, Kab. Kuningan, Jawa Barat 45562
+        </p>
+        <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=Desa+Jagara,+Darma,+Kuningan&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Pernikahan"></iframe>
         </div>
     </section>
 
@@ -348,11 +365,11 @@
         <form class="rsvp-form" id="rsvp-form" name="submit-to-google-sheet">
             <div class="input-group">
                 <label for="rsvp-nama">Nama Lengkap</label>
-                <input type="text" id="rsvp-nama" name="nama" placeholder="Masukkan nama Anda..." required readonly style="background-color: #f0f0f0; cursor: not-allowed;">
+                <input type="text" id="rsvp-nama" name="nama" placeholder="Masukkan nama Anda..." required readonly style="background-color: #f0f0f0; cursor: not-allowed;" aria-readonly="true">
             </div>
             <div class="input-group">
                 <label for="kehadiran">Konfirmasi Kehadiran</label>
-                <select name="kehadiran" id="kehadiran" required>
+                <select name="kehadiran" id="kehadiran" required aria-required="true">
                     <option value="" disabled selected>Apakah Anda akan hadir?</option>
                     <option value="Hadir">Ya, Saya akan hadir</option>
                     <option value="Tidak Hadir">Maaf, saya tidak bisa hadir</option>
@@ -360,7 +377,7 @@
             </div>
             <div class="input-group">
                 <label for="pesan">Ucapan & Doa</label>
-                <textarea name="pesan" id="pesan" rows="4" placeholder="Tuliskan harapan baik untuk mempelai..." required></textarea>
+                <textarea name="pesan" id="pesan" rows="4" placeholder="Tuliskan harapan baik untuk mempelai..." required aria-required="true"></textarea>
             </div>
             <button type="submit" id="btn-kirim">Kirim Pesan</button>
         </form>
@@ -386,7 +403,7 @@
     </footer>
 
     <script>
-        // URL WEB APP GOOGLE SCRIPT ANDA
+        // API SCRIPT URL 100% VALID
         const scriptURL = 'https://script.google.com/macros/s/AKfycbz_LkzasYYhWwOgIaq9MnCmJlDcdIPJVYjZqmbeJXr07fXnUv8LBUPpTOgLkU6_bPPh/exec'; 
 
         const welcomeScreen = document.getElementById('welcome-screen');
@@ -398,7 +415,7 @@
         const audioBtn = document.getElementById("audio-toggle");
         let isPlaying = false;
 
-        // Modal Logic
+        // Modal Kalender Logic
         const modal = document.getElementById("calendarModal");
         const btnShowModal = document.getElementById("btn-show-calendar");
         const btnCloseModal = document.getElementById("closeCalendar");
@@ -406,30 +423,43 @@
         btnCloseModal.onclick = () => modal.style.display = "none";
         window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; }
 
+        // Enter key support untuk input nama
         guestInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') { e.preventDefault(); openBtn.click(); }
         });
 
+        // Buka Undangan Action (Bypass Audio Policy)
         openBtn.addEventListener('click', () => {
             let guestName = guestInput.value.trim();
             if (guestName === "") { alert("Mohon isi nama Anda terlebih dahulu."); guestInput.focus(); return; }
             displayGuestName.innerHTML = guestName;
             rsvpNamaInput.value = guestName;
+            
             welcomeScreen.classList.add('slide-up');
             document.body.classList.add('opened');
             setTimeout(() => { welcomeScreen.style.display = 'none'; }, 1200);
+            
             if (!isPlaying) {
-                audio.play().then(() => { isPlaying = true; audioBtn.innerHTML = "⏸️"; }).catch(e => console.log("Autoplay ditahan browser."));
+                let playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        isPlaying = true; 
+                        audioBtn.innerHTML = "⏸️";
+                    }).catch(error => {
+                        console.log("Autoplay ditahan oleh browser. Pengguna harus menekan tombol musik secara manual.");
+                    });
+                }
             }
         });
 
+        // Toggle Audio
         audioBtn.addEventListener("click", function() {
             if (isPlaying) { audio.pause(); audioBtn.innerHTML = "🎵"; } 
             else { audio.play(); audioBtn.innerHTML = "⏸️"; }
             isPlaying = !isPlaying;
         });
 
-        // Efek Scroll Animasi
+        // Efek Scroll Animasi (Menggunakan IntersectionObserver untuk Performa Maksimal)
         const reveals = document.querySelectorAll(".reveal");
         const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const revealOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -441,16 +471,17 @@
         }, revealOptions);
         reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-        // Countdown Logic (Waktu UTC+7 WIB disesuaikan)
-        const countDownDate = new Date("Jun 1, 2026 09:00:00").getTime();
-        const x = setInterval(function() {
+        // Countdown Logic (Akurat menuju 1 Juni 2026 Pukul 08.00 - Akad)
+        const countDownDate = new Date("Jun 1, 2026 08:00:00").getTime();
+        const countdownTimer = setInterval(function() {
             const distance = countDownDate - new Date().getTime();
             document.getElementById("days").innerHTML = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
             document.getElementById("hours").innerHTML = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
             document.getElementById("minutes").innerHTML = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
             document.getElementById("seconds").innerHTML = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
             if (distance < 0) {
-                clearInterval(x); document.getElementById("countdown").innerHTML = "<h3 style='font-family: Playfair Display, serif;'>Acara Sedang Berlangsung!</h3>";
+                clearInterval(countdownTimer); 
+                document.getElementById("countdown").innerHTML = "<h3 style='font-family: Playfair Display, serif;'>Acara Sedang Berlangsung!</h3>";
             }
         }, 1000);
 
@@ -458,31 +489,51 @@
         function copyRekening(elementId, btnElement) {
             var copyText = document.getElementById(elementId).innerText;
             if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(copyText).then(suksesCopy).catch(err => console.error('Gagal: ', err));
+                navigator.clipboard.writeText(copyText).then(suksesCopy).catch(err => fallbackCopy(copyText));
             } else {
+                fallbackCopy(copyText);
+            }
+
+            function fallbackCopy(text) {
                 let textArea = document.createElement("textarea");
-                textArea.value = copyText; textArea.style.position = "fixed"; textArea.style.left = "-999999px";
-                document.body.appendChild(textArea); textArea.focus(); textArea.select();
-                try { document.execCommand('copy'); suksesCopy(); } catch (err) { console.error('Gagal menyalin', err); }
+                textArea.value = text; 
+                textArea.style.position = "fixed"; 
+                textArea.style.left = "-999999px";
+                document.body.appendChild(textArea); 
+                textArea.focus(); 
+                textArea.select();
+                try { document.execCommand('copy'); suksesCopy(); } 
+                catch (err) { console.error('Gagal menyalin', err); }
                 textArea.remove();
             }
+
             function suksesCopy() {
                 var originalText = btnElement.innerText;
-                btnElement.innerText = "Disalin! ✔️"; btnElement.style.backgroundColor = "#2a3322"; btnElement.style.color = "white";
-                setTimeout(() => { btnElement.innerText = originalText; btnElement.style.backgroundColor = ""; btnElement.style.color = ""; }, 2000);
+                btnElement.innerText = "Disalin! ✔️"; 
+                btnElement.style.backgroundColor = "#2a3322"; 
+                btnElement.style.color = "white";
+                setTimeout(() => { 
+                    btnElement.innerText = originalText; 
+                    btnElement.style.backgroundColor = ""; 
+                    btnElement.style.color = ""; 
+                }, 2000);
             }
         }
 
-        // Generate file ICS
+        // Generate file ICS untuk Apple Calendar / Outlook
         function downloadICS() {
-            const msg = "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nURL:https://sambas-fitri.com\nDTSTART:20260601T020000Z\nDTEND:20260601T070000Z\nSUMMARY:Pernikahan Sambas & Fitri\nDESCRIPTION:Mohon doa restu dan kehadiran Anda.\nLOCATION:Desa Jagara, Kuningan, Jawa Barat\nEND:VEVENT\nEND:VCALENDAR";
+            const msg = "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nURL:https://sambas-fitri.com\nDTSTART:20260601T010000Z\nDTEND:20260601T070000Z\nSUMMARY:Pernikahan Sambas & Fitri\nDESCRIPTION:Mohon doa restu dan kehadiran Anda.\nLOCATION:Desa Jagara, Kuningan, Jawa Barat\nEND:VEVENT\nEND:VCALENDAR";
             const blob = new Blob([msg], { type: 'text/calendar;charset=utf-8' });
-            const link = document.createElement('a'); link.href = window.URL.createObjectURL(blob);
-            link.setAttribute('download', 'Pernikahan_Sambas_Fitri.ics'); document.body.appendChild(link); link.click(); document.body.removeChild(link);
+            const link = document.createElement('a'); 
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', 'Pernikahan_Sambas_Fitri.ics'); 
+            document.body.appendChild(link); 
+            link.click(); 
+            document.body.removeChild(link);
         }
 
         // ==========================================
-        // GUESTBOOK & PAGINATION LOGIC
+        // GUESTBOOK & PAGINATION API LOGIC
         // ==========================================
         const form = document.forms['submit-to-google-sheet'];
         const btnKirim = document.getElementById('btn-kirim');
@@ -543,24 +594,41 @@
             document.querySelector('.guestbook-wrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
+        // Panggil saat load
         loadGuestbook();
 
+        // Submit form handler (Logika Reset Diperbaiki)
         form.addEventListener('submit', e => {
             e.preventDefault(); 
             const originalText = btnKirim.innerHTML;
-            btnKirim.innerHTML = 'Mengirim... ⏳'; btnKirim.disabled = true; btnKirim.style.opacity = '0.7';
+            btnKirim.innerHTML = 'Mengirim... ⏳'; 
+            btnKirim.disabled = true; 
+            btnKirim.style.opacity = '0.7';
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    btnKirim.innerHTML = 'Terkirim! ✔️'; btnKirim.style.backgroundColor = '#4A5D23'; btnKirim.style.opacity = '1';
-                    const currentName = form.nama.value; form.reset(); form.nama.value = currentName;
+                    btnKirim.innerHTML = 'Terkirim! ✔️'; 
+                    btnKirim.style.backgroundColor = '#4A5D23'; 
+                    btnKirim.style.opacity = '1';
                     
+                    // Simpan nama, reset form (agar pesan kosong), lalu masukkan nama lagi
+                    const currentName = form.nama.value; 
+                    form.reset(); 
+                    form.nama.value = currentName;
+                    
+                    // Muat ulang data ucapan terbaru
                     loadGuestbook(); 
                     
-                    setTimeout(() => { btnKirim.innerHTML = originalText; btnKirim.disabled = false; }, 3000);
+                    setTimeout(() => { 
+                        btnKirim.innerHTML = originalText; 
+                        btnKirim.disabled = false; 
+                    }, 3000);
                 })
                 .catch(error => {
-                    btnKirim.innerHTML = 'Gagal ❌'; btnKirim.disabled = false; btnKirim.style.opacity = '1'; btnKirim.style.backgroundColor = '#e74c3c';
+                    btnKirim.innerHTML = 'Gagal ❌'; 
+                    btnKirim.disabled = false; 
+                    btnKirim.style.opacity = '1'; 
+                    btnKirim.style.backgroundColor = '#e74c3c';
                     console.error('Error submitting form:', error);
                 });
         });
