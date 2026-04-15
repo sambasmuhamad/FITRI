@@ -29,7 +29,7 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: var(--text-dark); 
-            overflow: hidden; 
+            overflow-x: hidden; 
             line-height: 1.6; 
             width: 100%;
             position: relative;
@@ -46,7 +46,7 @@
                 url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm-15 0c0-8.284-6.716-15-15-15S-15 21.716-15 30s6.716 15 15 15 15-6.716 15-15zm15-15c0-8.284 6.716-15 15-15S60 6.716 60 15s-6.716 15-15 15-15-6.716-15-15zm-15 0c0-8.284-6.716-15-15-15S-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15zm15 30c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm-15 0c0-8.284-6.716-15-15-15S-15 36.716-15 45s6.716 15 15 15 15-6.716 15-15z' fill='%23b58d55' fill-opacity='0.09'/%3E%3C/svg%3E");
         }
 
-        body.opened { overflow-y: auto; overflow-x: hidden; }
+        body.opened { overflow-y: auto; }
 
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
         .puitis-header { font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: 1px; }
@@ -59,9 +59,7 @@
             line-height: 1.2;
         }
 
-        /* ==================================================
-           FIXED: SAMPUL DEPAN DENGAN TEMA GUNUNG CIREMAI
-           ================================================== */
+        /* SAMPUL DEPAN (FIX 100DVH) */
         .welcome-screen {
             position: fixed; top: 0; left: 0; width: 100%; 
             height: 100vh; height: 100dvh; 
@@ -69,7 +67,6 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
             background-color: var(--text-dark); 
-            /* Filter diturunkan jadi 0.3 - 0.6 agar gunung terlihat jelas, dan link pakai server premium HD */
             background-image: linear-gradient(rgba(42, 51, 34, 0.3), rgba(42, 51, 34, 0.6)), 
                               url('https://images.unsplash.com/photo-1580910459816-646f8eb7d620?q=80&w=1920&auto=format&fit=crop');
             background-size: cover; background-position: center center; background-repeat: no-repeat;
@@ -89,7 +86,7 @@
         
         .welcome-input {
             width: 100%; padding: 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.4);
-            text-align: center; font-size: 16px; margin-bottom: 5px; font-family: 'Montserrat', sans-serif;
+            text-align: center; font-size: 16px; margin-bottom: 15px; font-family: 'Montserrat', sans-serif;
             background: rgba(255, 255, 255, 0.9); color: var(--text-dark); outline: none; transition: all 0.3s ease;
         }
         .welcome-input:focus { border: 2px solid var(--accent); background: rgba(255, 255, 255, 1); }
@@ -101,13 +98,10 @@
         }
         .btn-open:hover { background-color: #9c7847; transform: scale(1.03); box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
 
-        /* ==================================================
-           FIXED: HALAMAN UTAMA DENGAN TEMA GUNUNG CIREMAI
-           ================================================== */
+        /* HALAMAN UTAMA / HERO */
         .hero { 
             height: 100vh; height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
             color: var(--text-light); padding: 20px; background-color: var(--text-dark);
-            /* Overlay yang lebih transparan agar pemandangan alam nyata */
             background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), 
                               url('https://images.unsplash.com/photo-1580910459816-646f8eb7d620?q=80&w=1920&auto=format&fit=crop');
             background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;
@@ -190,21 +184,28 @@
         button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; margin-top: 10px; }
         button[type="submit"]:hover { background-color: var(--text-dark); }
         
-        .guestbook-container { max-width: 600px; margin: 30px auto 0; max-height: 400px; overflow-y: auto; padding-right: 5px; }
-        .guestbook-container::-webkit-scrollbar { width: 5px; }
-        .guestbook-container::-webkit-scrollbar-thumb { background-color: var(--secondary); border-radius: 10px; }
-        .guest-card { background: rgba(255, 255, 255, 0.92); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--accent); }
+        /* GUESTBOOK & PAGINATION STYLES */
+        .guestbook-wrapper { max-width: 600px; margin: 30px auto 0; text-align: left;}
+        .guestbook-container { max-height: auto; padding-right: 5px; }
+        .guest-card { background: rgba(255, 255, 255, 0.92); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease;}
         .guest-card h4 { color: var(--text-dark); margin-bottom: 5px; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;}
         .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; }
         .badge-hadir { background-color: #e8f5e9; color: #2e7d32; }
         .badge-absen { background-color: #ffebee; color: #c0392b; }
         .guest-card p { color: #555; font-size: 0.95rem; margin-top: 5px; font-style: italic; word-wrap: break-word;}
+        
+        .pagination-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding: 10px 5px; }
+        .pagination-controls button { background-color: var(--secondary); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .pagination-controls button:hover:not(:disabled) { background-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .pagination-controls button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.7; }
+        .page-info { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); background: rgba(255,255,255,0.7); padding: 5px 12px; border-radius: 15px;}
 
         .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 141, 85, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(181, 141, 85, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 141, 85, 0); } }
 
+        /* Media Queries Mobile Responsive */
         @media (max-width: 768px) {
             section { padding: 60px 20px; }
             .couple-wrapper { flex-direction: column; }
@@ -223,7 +224,7 @@
             <p class="puitis-header line-2">Alam & Semesta Memberi Restu</p>
             <h1 class="serif">Sambas & Fitri</h1>
             <div class="welcome-input-group">
-                <input type="text" id="guest-name-input" class="welcome-input" placeholder="Ketik Nama Anda..." required aria-label="Nama Tamu">
+                <input type="text" id="guest-name-input" class="welcome-input" placeholder="Ketik Nama Anda..." required aria-label="Nama Tamu" autocomplete="off">
                 <button class="btn-open puitis-header" id="btn-open-invitation" aria-label="Buka Undangan">Buka Undangan 🌿</button>
             </div>
         </div>
@@ -302,7 +303,7 @@
                 Jl. Lkr. Waduk Darma Jl. Desa Jagara, RT.01/RW.01, Dusun Manis, Darma, Kec. Darma, Kab. Kuningan, Jawa Barat 45562
             </p>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15839.84931393666!2d108.3846665!3d-7.0135894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f414467d1a293%3A0xcda8d0115e589838!2sJagara%2C%20Darma%2C%20Kuningan%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Pernikahan"></iframe>
+                <iframe src="https://maps.google.com/maps?q=Desa%20Jagara,%20Darma,%20Kuningan,%20Jawa%20Barat&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Pernikahan"></iframe>
             </div>
         </div>
     </section>
@@ -343,6 +344,7 @@
     <section class="reveal" id="rsvp">
         <h2 class="section-title">Kehadiran & Ucapan</h2>
         <div class="divider"></div>
+        
         <form class="rsvp-form" id="rsvp-form" name="submit-to-google-sheet">
             <div class="input-group">
                 <label for="rsvp-nama">Nama Lengkap</label>
@@ -363,10 +365,17 @@
             <button type="submit" id="btn-kirim">Kirim Pesan</button>
         </form>
 
-        <div style="margin-top: 50px;">
-            <h3 class="serif" style="color: var(--primary); font-size: 1.8rem;">Buku Tamu</h3>
+        <div class="guestbook-wrapper">
+            <h3 class="serif" style="color: var(--primary); font-size: 1.8rem; text-align: center; margin-bottom: 20px;">Buku Tamu</h3>
+            
             <div class="guestbook-container" id="guestbook-list" aria-live="polite">
                 <p style="text-align: center; color: #888; font-size: 0.9rem;">Memuat ucapan... ⏳</p>
+            </div>
+            
+            <div class="pagination-controls" id="pagination-controls" style="display: none;">
+                <button id="btn-prev" onclick="changePage(-1)" aria-label="Halaman Sebelumnya">❮ Sebelumnya</button>
+                <span class="page-info" id="page-info">Halaman 1</span>
+                <button id="btn-next" onclick="changePage(1)" aria-label="Halaman Selanjutnya">Selanjutnya ❯</button>
             </div>
         </div>
     </section>
@@ -377,7 +386,7 @@
     </footer>
 
     <script>
-        // GANTI INI DENGAN URL GOOGLE SCRIPT ANDA
+        // URL WEB APP GOOGLE SCRIPT ANDA
         const scriptURL = 'https://script.google.com/macros/s/AKfycbz_LkzasYYhWwOgIaq9MnCmJlDcdIPJVYjZqmbeJXr07fXnUv8LBUPpTOgLkU6_bPPh/exec'; 
 
         const welcomeScreen = document.getElementById('welcome-screen');
@@ -393,7 +402,6 @@
         const modal = document.getElementById("calendarModal");
         const btnShowModal = document.getElementById("btn-show-calendar");
         const btnCloseModal = document.getElementById("closeCalendar");
-
         btnShowModal.onclick = () => modal.style.display = "flex";
         btnCloseModal.onclick = () => modal.style.display = "none";
         window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; }
@@ -405,19 +413,13 @@
         openBtn.addEventListener('click', () => {
             let guestName = guestInput.value.trim();
             if (guestName === "") { alert("Mohon isi nama Anda terlebih dahulu."); guestInput.focus(); return; }
-            
             displayGuestName.innerHTML = guestName;
             rsvpNamaInput.value = guestName;
-            
             welcomeScreen.classList.add('slide-up');
             document.body.classList.add('opened');
             setTimeout(() => { welcomeScreen.style.display = 'none'; }, 1200);
-            
             if (!isPlaying) {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    audioBtn.innerHTML = "⏸️";
-                }).catch(e => console.log("Autoplay ditahan browser, harus tekan tombol musik."));
+                audio.play().then(() => { isPlaying = true; audioBtn.innerHTML = "⏸️"; }).catch(e => console.log("Autoplay ditahan browser."));
             }
         });
 
@@ -439,7 +441,7 @@
         }, revealOptions);
         reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-        // Countdown Logic
+        // Countdown Logic (Waktu UTC+7 WIB disesuaikan)
         const countDownDate = new Date("Jun 1, 2026 09:00:00").getTime();
         const x = setInterval(function() {
             const distance = countDownDate - new Date().getTime();
@@ -448,8 +450,7 @@
             document.getElementById("minutes").innerHTML = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
             document.getElementById("seconds").innerHTML = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
             if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "<h3 style='font-family: Playfair Display, serif;'>Acara Sedang Berlangsung!</h3>";
+                clearInterval(x); document.getElementById("countdown").innerHTML = "<h3 style='font-family: Playfair Display, serif;'>Acara Sedang Berlangsung!</h3>";
             }
         }, 1000);
 
@@ -460,27 +461,15 @@
                 navigator.clipboard.writeText(copyText).then(suksesCopy).catch(err => console.error('Gagal: ', err));
             } else {
                 let textArea = document.createElement("textarea");
-                textArea.value = copyText;
-                textArea.style.position = "fixed";
-                textArea.style.left = "-999999px";
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                try { document.execCommand('copy'); suksesCopy(); } 
-                catch (err) { console.error('Gagal menyalin', err); }
+                textArea.value = copyText; textArea.style.position = "fixed"; textArea.style.left = "-999999px";
+                document.body.appendChild(textArea); textArea.focus(); textArea.select();
+                try { document.execCommand('copy'); suksesCopy(); } catch (err) { console.error('Gagal menyalin', err); }
                 textArea.remove();
             }
-
             function suksesCopy() {
                 var originalText = btnElement.innerText;
-                btnElement.innerText = "Disalin! ✔️";
-                btnElement.style.backgroundColor = "#2a3322";
-                btnElement.style.color = "white";
-                setTimeout(() => {
-                    btnElement.innerText = originalText;
-                    btnElement.style.backgroundColor = "";
-                    btnElement.style.color = "";
-                }, 2000);
+                btnElement.innerText = "Disalin! ✔️"; btnElement.style.backgroundColor = "#2a3322"; btnElement.style.color = "white";
+                setTimeout(() => { btnElement.innerText = originalText; btnElement.style.backgroundColor = ""; btnElement.style.color = ""; }, 2000);
             }
         }
 
@@ -488,69 +477,91 @@
         function downloadICS() {
             const msg = "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nURL:https://sambas-fitri.com\nDTSTART:20260601T020000Z\nDTEND:20260601T070000Z\nSUMMARY:Pernikahan Sambas & Fitri\nDESCRIPTION:Mohon doa restu dan kehadiran Anda.\nLOCATION:Desa Jagara, Kuningan, Jawa Barat\nEND:VEVENT\nEND:VCALENDAR";
             const blob = new Blob([msg], { type: 'text/calendar;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.setAttribute('download', 'Pernikahan_Sambas_Fitri.ics');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            const link = document.createElement('a'); link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', 'Pernikahan_Sambas_Fitri.ics'); document.body.appendChild(link); link.click(); document.body.removeChild(link);
         }
 
-        // Form RSVP
+        // ==========================================
+        // GUESTBOOK & PAGINATION LOGIC
+        // ==========================================
         const form = document.forms['submit-to-google-sheet'];
         const btnKirim = document.getElementById('btn-kirim');
         const guestbookList = document.getElementById('guestbook-list');
+        const paginationControls = document.getElementById('pagination-controls');
+        
+        let allGuestData = []; 
+        let currentPage = 1;
+        const itemsPerPage = 5; 
 
         function loadGuestbook() {
-            if (scriptURL === 'https://script.google.com/macros/s/AKfycbz_LkzasYYhWwOgIaq9MnCmJlDcdIPJVYjZqmbeJXr07fXnUv8LBUPpTOgLkU6_bPPh/exec') {
-                guestbookList.innerHTML = '<p style="text-align: center; color: #888; font-size: 0.9rem;">(Buku tamu aktif setelah mengatur URL Google Script)</p>';
-                return;
-            }
             fetch(scriptURL)
                 .then(response => response.json())
                 .then(data => {
-                    guestbookList.innerHTML = ''; 
-                    data.reverse().forEach(guest => {
-                        const badgeClass = guest.kehadiran === 'Hadir' ? 'badge-hadir' : 'badge-absen';
-                        const html = `<div class="guest-card"><h4>${guest.nama} <span class="guest-badge ${badgeClass}">${guest.kehadiran}</span></h4><p>"${guest.pesan}"</p></div>`;
-                        guestbookList.innerHTML += html;
-                    });
-                    if(data.length === 0) { guestbookList.innerHTML = '<p style="text-align: center; color: #888; font-size: 0.9rem;">Belum ada ucapan. Jadilah yang pertama!</p>'; }
+                    allGuestData = data.reverse(); 
+                    currentPage = 1; 
+                    renderGuestbookPage();
                 })
                 .catch(error => { 
-                    guestbookList.innerHTML = '<p style="text-align: center; color: #c0392b; font-size: 0.9rem;">Gagal memuat buku tamu.</p>';
+                    guestbookList.innerHTML = '<p style="text-align: center; color: #c0392b; font-size: 0.9rem;">Gagal memuat buku tamu. Pastikan koneksi internet stabil.</p>';
+                    console.error('Error fetching guestbook:', error);
                 });
+        }
+
+        function renderGuestbookPage() {
+            guestbookList.innerHTML = ''; 
+            
+            if(allGuestData.length === 0) { 
+                guestbookList.innerHTML = '<p style="text-align: center; color: #888; font-size: 0.9rem;">Belum ada ucapan. Jadilah yang pertama!</p>'; 
+                paginationControls.style.display = 'none';
+                return; 
+            }
+
+            const totalPages = Math.ceil(allGuestData.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageData = allGuestData.slice(startIndex, endIndex);
+
+            pageData.forEach(guest => {
+                const badgeClass = guest.kehadiran === 'Hadir' ? 'badge-hadir' : 'badge-absen';
+                const html = `<div class="guest-card"><h4>${guest.nama} <span class="guest-badge ${badgeClass}">${guest.kehadiran}</span></h4><p>"${guest.pesan}"</p></div>`;
+                guestbookList.innerHTML += html;
+            });
+
+            if (totalPages > 1) {
+                paginationControls.style.display = 'flex';
+                document.getElementById('page-info').innerText = `Halaman ${currentPage} dari ${totalPages}`;
+                document.getElementById('btn-prev').disabled = currentPage === 1;
+                document.getElementById('btn-next').disabled = currentPage === totalPages;
+            } else {
+                paginationControls.style.display = 'none';
+            }
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            renderGuestbookPage();
+            document.querySelector('.guestbook-wrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         loadGuestbook();
 
         form.addEventListener('submit', e => {
             e.preventDefault(); 
-            if (scriptURL === 'https://script.google.com/macros/s/AKfycbz_LkzasYYhWwOgIaq9MnCmJlDcdIPJVYjZqmbeJXr07fXnUv8LBUPpTOgLkU6_bPPh/exec') {
-                alert("URL Google Web App belum disetting.");
-                return;
-            }
             const originalText = btnKirim.innerHTML;
-            btnKirim.innerHTML = 'Mengirim... ⏳';
-            btnKirim.disabled = true;
-            btnKirim.style.opacity = '0.7';
+            btnKirim.innerHTML = 'Mengirim... ⏳'; btnKirim.disabled = true; btnKirim.style.opacity = '0.7';
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    btnKirim.innerHTML = 'Terkirim! ✔️';
-                    btnKirim.style.backgroundColor = '#4A5D23'; 
-                    btnKirim.style.opacity = '1';
-                    const currentName = form.nama.value;
-                    form.reset(); 
-                    form.nama.value = currentName;
+                    btnKirim.innerHTML = 'Terkirim! ✔️'; btnKirim.style.backgroundColor = '#4A5D23'; btnKirim.style.opacity = '1';
+                    const currentName = form.nama.value; form.reset(); form.nama.value = currentName;
+                    
                     loadGuestbook(); 
+                    
                     setTimeout(() => { btnKirim.innerHTML = originalText; btnKirim.disabled = false; }, 3000);
                 })
                 .catch(error => {
-                    btnKirim.innerHTML = 'Gagal ❌';
-                    btnKirim.disabled = false;
-                    btnKirim.style.opacity = '1';
-                    btnKirim.style.backgroundColor = '#e74c3c';
+                    btnKirim.innerHTML = 'Gagal ❌'; btnKirim.disabled = false; btnKirim.style.opacity = '1'; btnKirim.style.backgroundColor = '#e74c3c';
+                    console.error('Error submitting form:', error);
                 });
         });
     </script>
