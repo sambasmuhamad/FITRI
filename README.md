@@ -1,2 +1,2 @@
 # FITRI
-FITRI
+Wedding Invitation (Digital Information)
