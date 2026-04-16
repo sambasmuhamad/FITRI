@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Tema Alam & Pegunungan Ciremai --- */
         :root {
             --primary: #3c4a1e; 
             --secondary: #74824a; 
@@ -188,16 +187,17 @@
         input:focus, select:focus, textarea:focus { border-color: var(--accent); background-color: white; }
         button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; margin-top: 10px; }
         button[type="submit"]:hover { background-color: var(--text-dark); }
+        button[type="submit"]:disabled { background-color: #7f8c8d; cursor: not-allowed; opacity: 0.7; }
         
         /* GUESTBOOK & PAGINATION (Desktop Level) */
         .guestbook-wrapper { max-width: 600px; margin: 30px auto 0; text-align: left;}
         .guestbook-container { max-height: auto; padding-right: 5px; }
-        .guest-card { background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease;}
+        .guest-card { background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease; overflow-wrap: break-word; word-wrap: break-word;}
         .guest-card h4 { color: var(--text-dark); margin-bottom: 5px; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px;}
         .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; }
         .badge-hadir { background-color: #e8f5e9; color: #2e7d32; }
         .badge-absen { background-color: #ffebee; color: #c0392b; }
-        .guest-card p { color: #555; font-size: 0.95rem; margin-top: 5px; font-style: italic; word-wrap: break-word;}
+        .guest-card p { color: #555; font-size: 0.95rem; margin-top: 5px; font-style: italic;}
         
         /* PAGINATION BASE STYLES */
         .pagination-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; padding: 10px 5px; }
@@ -230,7 +230,7 @@
                 padding: 10px 0;
             }
             .page-info { 
-                order: -1; /* Menaikkan info halaman ke baris atas */
+                order: -1; 
                 width: 100%; 
                 text-align: center; 
                 margin-bottom: 5px; 
@@ -238,7 +238,7 @@
                 background: transparent;
             }
             .pagination-controls button { 
-                flex: 1; /* Tombol membagi ruang sama rata */
+                flex: 1; 
                 padding: 8px 10px; 
                 font-size: 0.75rem; 
                 text-align: center;
@@ -279,13 +279,13 @@
         <p style="font-style: italic; color: #666; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">"Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan."</p>
         <div class="couple-wrapper">
             <div class="person">
-                <img src="https://drive.google.com/thumbnail?id=1LsHnHK78WfB_9eEKDN4RxXPNhf23njyF&sz=w1000-h2000&auto=format&fit=crop" alt="Sambas" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop" alt="Sambas" loading="lazy">
                 <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Sambas</h3>
                 <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putra dari Bapak Muhamad & Ibu Siti</p>
             </div>
             <h1 class="serif ampersand">&</h1>
             <div class="person">
-                <img src="https://drive.google.com/thumbnail?id=1MGIbLMLjRKKFja2C5nCkYqJ_CaQVJKsW&sz=w1000-h2000&auto=format&fit=crop" alt="Fitri" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop" alt="Fitri" loading="lazy">
                 <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Fitri</h3>
                 <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putri dari Bapak Tri & Ibu Suzana</p>
             </div>
@@ -385,6 +385,8 @@
         <div class="divider"></div>
         
         <form class="rsvp-form" id="rsvp-form" name="submit-to-google-sheet">
+            <input type="text" name="website" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+            
             <div class="input-group">
                 <label for="rsvp-nama">Nama Lengkap</label>
                 <input type="text" id="rsvp-nama" name="nama" placeholder="Masukkan nama Anda..." required readonly style="background-color: #f0f0f0; cursor: not-allowed;" aria-readonly="true">
@@ -425,7 +427,6 @@
     </footer>
 
     <script>
-        // API SCRIPT URL 100% VALID
         const scriptURL = 'https://script.google.com/macros/s/AKfycbz_LkzasYYhWwOgIaq9MnCmJlDcdIPJVYjZqmbeJXr07fXnUv8LBUPpTOgLkU6_bPPh/exec'; 
 
         const welcomeScreen = document.getElementById('welcome-screen');
@@ -481,7 +482,7 @@
             isPlaying = !isPlaying;
         });
 
-        // Efek Scroll Animasi (IntersectionObserver Fix Performance)
+        // Efek Scroll Animasi (IntersectionObserver Fix)
         const reveals = document.querySelectorAll(".reveal");
         const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const revealOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -493,7 +494,7 @@
         }, revealOptions);
         reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-        // Countdown Logic (Akurat)
+        // Countdown Logic
         const countDownDate = new Date("Jun 1, 2026 08:00:00").getTime();
         const countdownTimer = setInterval(function() {
             const distance = countDownDate - new Date().getTime();
@@ -512,50 +513,34 @@
             var copyText = document.getElementById(elementId).innerText;
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(copyText).then(suksesCopy).catch(err => fallbackCopy(copyText));
-            } else {
-                fallbackCopy(copyText);
-            }
+            } else { fallbackCopy(copyText); }
 
             function fallbackCopy(text) {
                 let textArea = document.createElement("textarea");
-                textArea.value = text; 
-                textArea.style.position = "fixed"; 
-                textArea.style.left = "-999999px";
-                document.body.appendChild(textArea); 
-                textArea.focus(); 
-                textArea.select();
-                try { document.execCommand('copy'); suksesCopy(); } 
-                catch (err) { console.error('Gagal menyalin', err); }
+                textArea.value = text; textArea.style.position = "fixed"; textArea.style.left = "-999999px";
+                document.body.appendChild(textArea); textArea.focus(); textArea.select();
+                try { document.execCommand('copy'); suksesCopy(); } catch (err) { console.error('Gagal menyalin', err); }
                 textArea.remove();
             }
 
             function suksesCopy() {
                 var originalText = btnElement.innerText;
-                btnElement.innerText = "Disalin! ✔️"; 
-                btnElement.style.backgroundColor = "#2a3322"; 
-                btnElement.style.color = "white";
-                setTimeout(() => { 
-                    btnElement.innerText = originalText; 
-                    btnElement.style.backgroundColor = ""; 
-                    btnElement.style.color = ""; 
-                }, 2000);
+                btnElement.innerText = "Disalin! ✔️"; btnElement.style.backgroundColor = "#2a3322"; btnElement.style.color = "white";
+                setTimeout(() => { btnElement.innerText = originalText; btnElement.style.backgroundColor = ""; btnElement.style.color = ""; }, 2000);
             }
         }
 
-        // Generate file ICS
         function downloadICS() {
             const msg = "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nURL:https://sambas-fitri.com\nDTSTART:20260601T010000Z\nDTEND:20260601T070000Z\nSUMMARY:Pernikahan Sambas & Fitri\nDESCRIPTION:Mohon doa restu dan kehadiran Anda.\nLOCATION:Desa Jagara, Kuningan, Jawa Barat\nEND:VEVENT\nEND:VCALENDAR";
             const blob = new Blob([msg], { type: 'text/calendar;charset=utf-8' });
             const link = document.createElement('a'); 
             link.href = window.URL.createObjectURL(blob);
             link.setAttribute('download', 'Pernikahan_Sambas_Fitri.ics'); 
-            document.body.appendChild(link); 
-            link.click(); 
-            document.body.removeChild(link);
+            document.body.appendChild(link); link.click(); document.body.removeChild(link);
         }
 
         // ==========================================
-        // GUESTBOOK & PAGINATION API LOGIC
+        // SECURITY & GUESTBOOK API LOGIC
         // ==========================================
         const form = document.forms['submit-to-google-sheet'];
         const btnKirim = document.getElementById('btn-kirim');
@@ -565,6 +550,24 @@
         let allGuestData = []; 
         let currentPage = 1;
         const itemsPerPage = 5; 
+
+        // 2. ANTI-XSS SANITIZER: Membersihkan input script berbahaya
+        function escapeHTML(str) {
+            if (!str) return "";
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag));
+        }
+
+        // Cek LocalStorage saat halaman dimuat (Lapis Keamanan ke-3)
+        if(localStorage.getItem('rsvp_status_sambasfitri') === 'submitted') {
+            btnKirim.innerHTML = 'Pesan Sudah Terkirim ✔️';
+            btnKirim.disabled = true;
+        }
 
         function loadGuestbook() {
             fetch(scriptURL)
@@ -576,7 +579,6 @@
                 })
                 .catch(error => { 
                     guestbookList.innerHTML = '<p style="text-align: center; color: #c0392b; font-size: 0.9rem;">Gagal memuat buku tamu. Pastikan koneksi internet stabil.</p>';
-                    console.error('Error fetching guestbook:', error);
                 });
         }
 
@@ -596,7 +598,12 @@
 
             pageData.forEach(guest => {
                 const badgeClass = guest.kehadiran === 'Hadir' ? 'badge-hadir' : 'badge-absen';
-                const html = `<div class="guest-card"><h4>${guest.nama} <span class="guest-badge ${badgeClass}">${guest.kehadiran}</span></h4><p>"${guest.pesan}"</p></div>`;
+                // Menerapkan Sanitasi HTML sebelum di-render
+                const safeNama = escapeHTML(guest.nama);
+                const safePesan = escapeHTML(guest.pesan);
+                const safeKehadiran = escapeHTML(guest.kehadiran);
+
+                const html = `<div class="guest-card"><h4>${safeNama} <span class="guest-badge ${badgeClass}">${safeKehadiran}</span></h4><p>"${safePesan}"</p></div>`;
                 guestbookList.innerHTML += html;
             });
 
@@ -620,7 +627,14 @@
 
         form.addEventListener('submit', e => {
             e.preventDefault(); 
-            const originalText = btnKirim.innerHTML;
+
+            // Validasi Lapis 1: Cek Honeypot (Jika Bot yang mengisi)
+            const honeypot = document.getElementById('honeypot').value;
+            if(honeypot !== "") {
+                console.warn("Aktivitas bot terdeteksi!");
+                return false; 
+            }
+
             btnKirim.innerHTML = 'Mengirim... ⏳'; 
             btnKirim.disabled = true; 
             btnKirim.style.opacity = '0.7';
@@ -635,19 +649,16 @@
                     form.reset(); 
                     form.nama.value = currentName;
                     
-                    loadGuestbook(); 
+                    // Lapis Keamanan 3: Set LocalStorage agar tidak bisa spam form berulang kali
+                    localStorage.setItem('rsvp_status_sambasfitri', 'submitted');
                     
-                    setTimeout(() => { 
-                        btnKirim.innerHTML = originalText; 
-                        btnKirim.disabled = false; 
-                    }, 3000);
+                    loadGuestbook(); 
                 })
                 .catch(error => {
                     btnKirim.innerHTML = 'Gagal ❌'; 
                     btnKirim.disabled = false; 
                     btnKirim.style.opacity = '1'; 
                     btnKirim.style.backgroundColor = '#e74c3c';
-                    console.error('Error submitting form:', error);
                 });
         });
     </script>
