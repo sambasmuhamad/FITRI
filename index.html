@@ -26,7 +26,6 @@
         
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-        /* Latar Belakang Tekstur Doff & Batik Kawung yang Aman untuk Performa iOS */
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: var(--text-dark); 
@@ -62,7 +61,7 @@
             line-height: 1.2;
         }
 
-        /* SAMPUL DEPAN (Fix Pegunungan) */
+        /* SAMPUL DEPAN */
         .welcome-screen {
             position: fixed; top: 0; left: 0; width: 100%; 
             height: 100vh; height: 100dvh; 
@@ -71,7 +70,7 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
             background-color: var(--text-dark); 
             background-image: linear-gradient(rgba(42, 51, 34, 0.4), rgba(42, 51, 34, 0.6)), 
-                              url('https://drive.google.com/thumbnail?id=1MGIbLMLjRKKFja2C5nCkYqJ_CaQVJKsW&sz=w1000-h2000&auto=format&fit=crop');
+                              url('https://cdn.pixabay.com/photo/2017/05/08/19/35/mountains-2296434_1280.jpg');
             background-size: cover; background-position: center center; background-repeat: no-repeat;
         }
         .welcome-screen.slide-up { transform: translateY(-100vh); transform: translateY(-100dvh); }
@@ -190,7 +189,7 @@
         button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; margin-top: 10px; }
         button[type="submit"]:hover { background-color: var(--text-dark); }
         
-        /* GUESTBOOK & PAGINATION */
+        /* GUESTBOOK & PAGINATION (Desktop Level) */
         .guestbook-wrapper { max-width: 600px; margin: 30px auto 0; text-align: left;}
         .guestbook-container { max-height: auto; padding-right: 5px; }
         .guest-card { background: rgba(255, 255, 255, 0.95); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease;}
@@ -200,11 +199,12 @@
         .badge-absen { background-color: #ffebee; color: #c0392b; }
         .guest-card p { color: #555; font-size: 0.95rem; margin-top: 5px; font-style: italic; word-wrap: break-word;}
         
-        .pagination-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding: 10px 5px; }
-        .pagination-controls button { background-color: var(--secondary); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        /* PAGINATION BASE STYLES */
+        .pagination-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; padding: 10px 5px; }
+        .pagination-controls button { background-color: var(--secondary); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; }
         .pagination-controls button:hover:not(:disabled) { background-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .pagination-controls button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.7; }
-        .page-info { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); background: rgba(255,255,255,0.7); padding: 5px 12px; border-radius: 15px;}
+        .pagination-controls button:disabled { background-color: #ccc; cursor: not-allowed; opacity: 0.7; transform: none; box-shadow: none; }
+        .page-info { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); background: rgba(255,255,255,0.7); padding: 5px 12px; border-radius: 15px; white-space: nowrap; }
 
         /* ANIMASI REVEAL */
         .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
@@ -212,7 +212,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 141, 85, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(181, 141, 85, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 141, 85, 0); } }
 
-        /* RESPONSIVE MOBILE */
+        /* RESPONSIVE MOBILE - FIX PAGINATION PRECISION */
         @media (max-width: 768px) {
             section { padding: 60px 20px; }
             .couple-wrapper { flex-direction: column; }
@@ -221,6 +221,28 @@
             .event-card { flex: 1 1 100%; }
             .map-container iframe { height: 250px; }
             .gallery img { height: 250px; }
+            
+            /* Penyesuaian Pagination Cerdas untuk Smartphone */
+            .pagination-controls { 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 8px; 
+                padding: 10px 0;
+            }
+            .page-info { 
+                order: -1; /* Menaikkan info halaman ke baris atas */
+                width: 100%; 
+                text-align: center; 
+                margin-bottom: 5px; 
+                font-size: 0.75rem; 
+                background: transparent;
+            }
+            .pagination-controls button { 
+                flex: 1; /* Tombol membagi ruang sama rata */
+                padding: 8px 10px; 
+                font-size: 0.75rem; 
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -257,13 +279,13 @@
         <p style="font-style: italic; color: #666; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">"Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan."</p>
         <div class="couple-wrapper">
             <div class="person">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop" alt="Sambas" loading="lazy">
+                <img src="https://drive.google.com/thumbnail?id=1LsHnHK78WfB_9eEKDN4RxXPNhf23njyF&sz=w1000-h2000&auto=format&fit=crop" alt="Sambas" loading="lazy">
                 <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Sambas</h3>
                 <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putra dari Bapak Muhamad & Ibu Siti</p>
             </div>
             <h1 class="serif ampersand">&</h1>
             <div class="person">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop" alt="Fitri" loading="lazy">
+                <img src="https://drive.google.com/thumbnail?id=1MGIbLMLjRKKFja2C5nCkYqJ_CaQVJKsW&sz=w1000-h2000&auto=format&fit=crop" alt="Fitri" loading="lazy">
                 <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Fitri</h3>
                 <p style="font-size: 0.9rem; margin-top: 5px; color: #555;">Putri dari Bapak Tri & Ibu Suzana</p>
             </div>
@@ -321,7 +343,7 @@
             Jl. Lkr. Waduk Darma, Desa Jagara, RT.01/RW.01, Dusun Manis, Darma, Kec. Darma, Kab. Kuningan, Jawa Barat 45562
         </p>
         <div class="map-container">
-            <iframe src="https://maps.google.com/maps?q=Desa+Jagara,+Darma,+Kuningan&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Pernikahan"></iframe>
+            <iframe src="https://maps.google.com/maps?q=Desa+Jagara,+Darma,+Kuningan&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Pernikahan"></iframe>
         </div>
     </section>
 
@@ -428,7 +450,7 @@
             if (e.key === 'Enter') { e.preventDefault(); openBtn.click(); }
         });
 
-        // Buka Undangan Action (Bypass Audio Policy)
+        // Buka Undangan Action
         openBtn.addEventListener('click', () => {
             let guestName = guestInput.value.trim();
             if (guestName === "") { alert("Mohon isi nama Anda terlebih dahulu."); guestInput.focus(); return; }
@@ -446,7 +468,7 @@
                         isPlaying = true; 
                         audioBtn.innerHTML = "⏸️";
                     }).catch(error => {
-                        console.log("Autoplay ditahan oleh browser. Pengguna harus menekan tombol musik secara manual.");
+                        console.log("Autoplay ditahan oleh browser.");
                     });
                 }
             }
@@ -459,7 +481,7 @@
             isPlaying = !isPlaying;
         });
 
-        // Efek Scroll Animasi (Menggunakan IntersectionObserver untuk Performa Maksimal)
+        // Efek Scroll Animasi (IntersectionObserver Fix Performance)
         const reveals = document.querySelectorAll(".reveal");
         const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const revealOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -471,7 +493,7 @@
         }, revealOptions);
         reveals.forEach(reveal => { revealOnScroll.observe(reveal); });
 
-        // Countdown Logic (Akurat menuju 1 Juni 2026 Pukul 08.00 - Akad)
+        // Countdown Logic (Akurat)
         const countDownDate = new Date("Jun 1, 2026 08:00:00").getTime();
         const countdownTimer = setInterval(function() {
             const distance = countDownDate - new Date().getTime();
@@ -520,7 +542,7 @@
             }
         }
 
-        // Generate file ICS untuk Apple Calendar / Outlook
+        // Generate file ICS
         function downloadICS() {
             const msg = "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nURL:https://sambas-fitri.com\nDTSTART:20260601T010000Z\nDTEND:20260601T070000Z\nSUMMARY:Pernikahan Sambas & Fitri\nDESCRIPTION:Mohon doa restu dan kehadiran Anda.\nLOCATION:Desa Jagara, Kuningan, Jawa Barat\nEND:VEVENT\nEND:VCALENDAR";
             const blob = new Blob([msg], { type: 'text/calendar;charset=utf-8' });
@@ -594,10 +616,8 @@
             document.querySelector('.guestbook-wrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        // Panggil saat load
         loadGuestbook();
 
-        // Submit form handler (Logika Reset Diperbaiki)
         form.addEventListener('submit', e => {
             e.preventDefault(); 
             const originalText = btnKirim.innerHTML;
@@ -611,12 +631,10 @@
                     btnKirim.style.backgroundColor = '#4A5D23'; 
                     btnKirim.style.opacity = '1';
                     
-                    // Simpan nama, reset form (agar pesan kosong), lalu masukkan nama lagi
                     const currentName = form.nama.value; 
                     form.reset(); 
                     form.nama.value = currentName;
                     
-                    // Muat ulang data ucapan terbaru
                     loadGuestbook(); 
                     
                     setTimeout(() => { 
