@@ -476,32 +476,31 @@
             if (e.key === 'Enter') { e.preventDefault(); openBtn.click(); }
         });
 
-        // Buka Undangan (Audio Bypass)
-        openBtn.addEventListener('click', () => {
-            let guestName = guestInput.value.trim();
-            if (guestName === "") { alert("Mohon isi nama Anda terlebih dahulu."); guestInput.focus(); return; }
-            displayGuestName.innerHTML = guestName;
-            rsvpNamaInput.value = guestName;
+        
+        // LOGIKA SAMPUL & KAPSUL AUDIO
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const openBtn = document.getElementById('btn-open-invitation');
+        const audio = document.getElementById("bg-music");
+        const audioBtn = document.getElementById("audio-toggle");
+
+        openBtn.onclick = () => {
+            let name = document.getElementById('guest-name-input').value.trim();
+            if(name === "") { alert("Mohon isi nama Anda dengan benar!"); return; }
             
+            document.getElementById('display-guest-name').innerText = name;
+            document.getElementById('rsvp-nama').value = name;
             welcomeScreen.classList.add('slide-up');
             document.body.classList.add('opened');
-            setTimeout(() => { welcomeScreen.style.display = 'none'; }, 1200);
             
-            if (!isPlaying) {
-                let playPromise = audio.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        isPlaying = true; audioBtn.innerHTML = "⏸️";
-                    }).catch(error => { console.log("Autoplay ditahan browser."); });
-                }
-            }
-        });
+            audio.play().catch(() => console.log('Autoplay diblokir, butuh interaksi lanjutan.')); 
+        };
 
-        audioBtn.addEventListener("click", function() {
-            if (isPlaying) { audio.pause(); audioBtn.innerHTML = "🎵"; } 
-            else { audio.play(); audioBtn.innerHTML = "⏸️"; }
-            isPlaying = !isPlaying;
-        });
+        audio.addEventListener('play', () => { audioBtn.classList.add('playing'); });
+        audio.addEventListener('pause', () => { audioBtn.classList.remove('playing'); });
+
+        audioBtn.onclick = () => {
+            if(audio.paused) { audio.play(); } else { audio.pause(); }
+        };
 
         // Scroll Reveal
         const reveals = document.querySelectorAll(".reveal");
