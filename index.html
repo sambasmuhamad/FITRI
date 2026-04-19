@@ -175,7 +175,6 @@
             .pagination-controls { flex-wrap: wrap; justify-content: center; gap: 8px; }
             .page-info { order: -1; width: 100%; text-align: center; margin-bottom: 5px; background: transparent; }
             .pagination-controls button { flex: 1; padding: 12px; font-size: 0.8rem; }
-            /* Memastikan Spotify Kapsul tidak out-of-bounds di layar kecil */
             .spotify-btn { bottom: 20px; right: 20px; }
             .spotify-btn.playing { width: 190px; }
             .player-content { width: 190px; padding-right: 10px; }
@@ -276,7 +275,7 @@
             </div>
         </div>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.83350294101!2d108.35824581566835!3d-7.00030588667554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f410c59807503%3A0xc0c87bb3cde3f30!2sJagara%2C%20Darma%2C%20Kuningan%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://maps.google.com/maps?q=Desa+Jagara,+Darma,+Kuningan&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -362,7 +361,6 @@
         const audioBtn = document.getElementById("audio-toggle");
 
         openBtn.onclick = () => {
-            // FIX BUG Celah Spam Spasi
             let name = document.getElementById('guest-name-input').value.trim();
             if(name === "") { alert("Mohon isi nama Anda dengan benar!"); return; }
             
@@ -374,7 +372,6 @@
             audio.play().catch(() => console.log('Autoplay diblokir, butuh interaksi lanjutan.')); 
         };
 
-        // FIX BUG AUDIO: Sinkronisasi Tombol dengan Status Asli Audio (Anti Lock-Screen Desync)
         audio.addEventListener('play', () => { audioBtn.classList.add('playing'); });
         audio.addEventListener('pause', () => { audioBtn.classList.remove('playing'); });
 
@@ -435,9 +432,16 @@
         // 7. BUKU TAMU & RSVP
         let allData = []; let currPage = 1; const perPage = 5;
         
+        // FIX BUG JS FATAL: Penulisan kutip yang 100% valid menggunakan entitas HTML
         function escapeHTML(str) {
             if (!str) return '';
-            const map = { '&': '&', '<': '<', '>': '>', '"': '"', "'": ''' };
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            };
             return str.toString().replace(/[&<>"']/g, m => map[m]);
         }
 
