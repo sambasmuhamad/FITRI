@@ -158,6 +158,7 @@
         /* --- 7. & 10. GIFT & WHATSAPP --- */
         .gift-container { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 30px; }
         .gift-card { background: rgba(255, 255, 255, 0.95); padding: 35px 30px; border-radius: 15px; box-shadow: var(--shadow-soft); width: 100%; max-width: 450px; border-top: 6px solid var(--accent); text-align: left; }
+		.bank-logo { height: 35px; object-fit: contain; margin: 0 0 20px 0; display: block; max-width: 100%; }
         .rek-number { font-size: clamp(1.4rem, 5vw, 1.8rem); font-family: 'Playfair Display', serif; font-weight: bold; letter-spacing: 2px; margin: 15px 0 5px; }
         .btn-copy { background-color: var(--bg-color); color: var(--text-dark); border: 1px solid var(--accent); padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; font-family: inherit; transition: var(--transition-smooth);}
         .btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 14px 25px; border-radius: 25px; font-weight: 600; width: 100%; max-width: 350px; transition: var(--transition-smooth); }
@@ -334,7 +335,7 @@
         
         <div class="gift-container">
             <div class="gift-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="Logo BRI" class="bank-logo" loading="lazy" draggable="false">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="Logo BRI" class="bank-logo" loading="lazy">
                 <div class="rek-number" id="rek-bri">4273 0103 8686 530</div>
                 <div class="rek-name">a.n. Fitria Tri Suzana</div>
                 <button class="btn-copy" id="btn-copy-rek">Salin No. Rekening</button>
