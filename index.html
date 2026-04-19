@@ -37,7 +37,9 @@
             content: ""; position: fixed; inset: 0; z-index: -1;
             background-color: var(--bg-color);
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
-            pointer-events: none;
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm-15 0c0-8.284-6.716-15-15-15S-15 21.716-15 30s6.716 15 15 15 15-6.716 15-15zm15-15c0-8.284 6.716-15 15-15S60 6.716 60 15s-6.716 15-15 15-15-6.716-15-15zm-15 0c0-8.284-6.716-15-15-15S-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15zm15 30c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm-15 0c0-8.284-6.716-15-15-15S-15 36.716-15 45s6.716 15 15 15 15-6.716 15-15z' fill='%23b58d55' fill-opacity='0.09'/%3E%3C/svg%3E");
+     
+			pointer-events: none;
         }
 
         body.opened { overflow-y: auto; }
@@ -162,6 +164,7 @@
         .rek-number { font-size: clamp(1.4rem, 5vw, 1.8rem); font-family: 'Playfair Display', serif; font-weight: bold; letter-spacing: 2px; margin: 15px 0 5px; }
 		.rek-name { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
         .btn-copy { background-color: var(--bg-color); color: var(--text-dark); border: 1px solid var(--accent); padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; font-family: inherit; transition: var(--transition-smooth);}
+		.btn-copy:hover { background-color: var(--accent); color: white; }
         .btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 14px 25px; border-radius: 25px; font-weight: 600; width: 100%; max-width: 350px; transition: var(--transition-smooth); }
 
         /* --- 8. RSVP & GUESTBOOK --- */
