@@ -154,6 +154,37 @@
 		
 		
 		
+		/* --- CONTAINER STYLE (2026 Optimized) --- */
+        .container {
+            position: relative;
+            width: 100%;
+            /* Menggunakan link gambar yang Anda berikan sebelumnya */
+            background-image: url('https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z&sz=w1080');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Memberikan efek paralaks saat di-scroll */
+            padding: 60px 0; /* Memberi ruang napas atas dan bawah */
+            overflow: hidden;
+        }
+
+        /* Overlay halus untuk memastikan konten di atasnya tetap menonjol */
+        .container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(247, 245, 240, 0.4); /* Menggunakan --bg-color dengan opasitas rendah */
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Memastikan section di dalam container berada di atas overlay */
+        .container > section {
+            position: relative;
+            z-index: 1;
+        }
+		
+		
 		/* --- KUTIPAN AYAT (Standardized 2026) --- */
         .verse-card {
             background: rgba(255, 255, 255, 0.85);
