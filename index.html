@@ -58,22 +58,71 @@
         .script-guest-name { font-family: 'Great Vibes', cursive; font-size: clamp(2rem, 8vw, 3.5rem); line-height: 1.2; word-break: break-word; }
 
         /* --- 1. & 2. HERO & COVER (GPU Accelerated) --- */
+       
+	   
+	   /* --- 1. & 2. HERO & COVER (Sesuai Referensi Desain) --- */
         .welcome-screen {
             position: fixed; inset: 0; z-index: 9999; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); background-color: var(--text-dark); 
-            background-image: linear-gradient(rgba(42, 51, 34, 0.4), rgba(42, 51, 34, 0.6)), url('https://drive.google.com/thumbnail?id=1aYM_GL9Is8eraac-PPG_0itmnLjZZWux&sz=w1080&auto=format&fit=crop');
+            display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            background-color: var(--bg-color); 
+            /* Menggunakan gambar background yang sama dengan body */
+            background-image: url('https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z&sz=w1080');
             background-size: cover; background-position: center;
+            padding: 12vh 20px 5vh;
+            color: var(--text-dark);
         }
         .welcome-screen.slide-up { transform: translateY(-100dvh); }
-        .welcome-content { padding: 20px; animation: fadeIn 1.8s ease-in; width: 100%; max-width: 90vw; display: flex; flex-direction: column; align-items: center; }
-        .welcome-content .line-1 { font-size: clamp(0.9rem, 2.5vw, 1.2rem); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);}
-        .welcome-content h1 { font-size: clamp(3.2rem, 12vw, 6rem); color: var(--accent); font-style: italic; margin-bottom: 30px; text-shadow: 3px 3px 15px rgba(0,0,0,0.8); line-height: 1.1;}
-        .welcome-input-group { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 30px 20px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.3); width: 100%; max-width: 420px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-        .welcome-input { width: 100%; padding: 15px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.4); text-align: center; font-size: 16px; margin-bottom: 15px; font-family: inherit; background: rgba(255, 255, 255, 0.9); color: var(--text-dark); outline: none; transition: var(--transition-smooth); }
-        .welcome-input:focus { border: 2px solid var(--accent); background: #FFF; }
-        .btn-open { padding: 14px 20px; background-color: var(--accent); color: white; border: none; border-radius: 25px; font-size: 1.05rem; cursor: pointer; transition: var(--transition-smooth); font-family: inherit; font-weight: 600; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .btn-open:hover { background-color: #9c7847; transform: scale(1.02); }
+        
+        /* Bagian Atas Sampul */
+        .cover-top { animation: fadeIn 1.5s ease-in; }
+        .cover-subtitle { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #333; margin-bottom: 10px; letter-spacing: 1px;}
+        
+        /* Monogram SF Ala Referensi */
+        .cover-monogram {
+            font-family: 'Cormorant Garamond', serif;
+            display: flex; justify-content: center; align-items: center;
+            color: #2a3322;
+        }
+        .cover-monogram .letter-s { font-size: 8rem; margin-right: -25px; line-height: 1; font-weight: 400;}
+        .cover-monogram .letter-f { font-size: 6.5rem; margin-top: 40px; line-height: 1; font-weight: 400;}
+
+        /* Bagian Bawah Sampul */
+        .cover-bottom { animation: fadeIn 2s ease-in; width: 100%; display: flex; flex-direction: column; align-items: center; }
+        .cover-greeting { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #2a3322; margin-bottom: 10px; }
+        
+        /* Input Nama Tamu dibuat transparan & elegan */
+        .cover-input { 
+            background: transparent; border: none; border-bottom: 1px solid rgba(42, 51, 34, 0.5); 
+            font-family: 'Playfair Display', serif; font-size: 1.5rem; text-align: center; 
+            color: #2a3322; padding: 5px; margin-bottom: 30px; outline: none; 
+            width: 80%; max-width: 300px; transition: var(--transition-smooth);
+        }
+        .cover-input:focus { border-bottom: 2px solid var(--text-dark); }
+        .cover-input::placeholder { color: rgba(42, 51, 34, 0.4); font-style: italic; }
+
+        /* Tombol Buka Undangan Hitam */
+        .btn-cover { 
+            background: #000; color: #fff; border: 1px solid #fff; border-radius: 30px; 
+            padding: 12px 25px; display: flex; align-items: center; justify-content: center; gap: 10px; 
+            font-family: 'Montserrat', sans-serif; font-size: 1rem; cursor: pointer; 
+            width: 100%; max-width: 250px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: var(--transition-smooth); font-weight: 500;
+        }
+        .btn-cover:hover { background: #333; transform: scale(1.02); }
+        .btn-cover svg { width: 18px; height: 18px; }
+
+        /* Ikon Panah Atas */
+        .scroll-indicator {
+            margin-top: 35px; width: 40px; height: 40px; border: 1.5px solid #fff; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px); animation: pulse 2s infinite; color: white;
+        }
+	   
+	   
+	   
+	   
+	   
 
         .hero { height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; background-color: var(--text-dark); background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('https://drive.google.com/thumbnail?id=1CLNCWWJc_uPAXs298sJn3EhJJw3DAviv&sz=w1080&auto=format&fit=crop'); background-size: cover; background-position: center; transform: translateZ(0); }
         .hero h1 { font-size: clamp(3.2rem, 12vw, 6rem); margin: 10px 0; font-style: italic; text-shadow: 3px 3px 10px rgba(0,0,0,0.6); line-height: 1.1; }
@@ -267,15 +316,33 @@
 <body>
 
     <div class="welcome-screen" id="welcome-screen">
-        <div class="welcome-content">
-            <p class="puitis-header line-1">Dalam Jalinan Kasih</p>
-            <p class="puitis-header line-2">Alam & Semesta Memberi Restu</p>
-            <h1 class="serif">Sambas & Fitria</h1>
-            <div class="welcome-input-group">
-                <input type="text" id="guest-name-input" class="welcome-input" placeholder="Ketik Nama Anda..." aria-label="Nama Tamu" autocomplete="off" enterkeyhint="go">
-                <button class="btn-open puitis-header" id="btn-open-invitation">Buka Undangan 🌿</button>
+        
+        <div class="cover-top">
+            <p class="cover-subtitle">The Wedding Of</p>
+            <div class="cover-monogram">
+                <span class="letter-s">S</span>
+                <span class="letter-f">F</span>
             </div>
         </div>
+
+        <div class="cover-bottom">
+            <p class="cover-greeting">Kepada Yth:</p>
+            <input type="text" id="guest-name-input" class="cover-input" placeholder="Nama Tamu..." aria-label="Nama Tamu" autocomplete="off" enterkeyhint="go">
+            
+            <button class="btn-cover" id="btn-open-invitation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Buka Undangan
+            </button>
+            
+            <div class="scroll-indicator">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+            </div>
+        </div>
+
     </div>
 
     <audio id="bg-music" loop preload="auto">
