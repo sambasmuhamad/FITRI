@@ -154,37 +154,6 @@
 		
 		
 		
-		/* --- CONTAINER STYLE (Updated Background) --- */
-        .container {
-            position: relative;
-            width: 100%;
-            /* Menggunakan link gambar baru yang Anda berikan */
-            background-image: url('https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1080');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Memberikan efek paralaks saat di-scroll */
-            padding: 60px 0; 
-            overflow: hidden;
-        }
-
-        /* Overlay halus untuk memastikan konten di atasnya tetap menonjol */
-        .container::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(247, 245, 240, 0.4); /* Menggunakan --bg-color dengan opasitas rendah */
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Memastikan section di dalam container berada di atas overlay */
-        .container > section {
-            position: relative;
-            z-index: 1;
-        }
-		
-		
 		/* --- KUTIPAN AYAT (Standardized 2026) --- */
         .verse-card {
             background: rgba(255, 255, 255, 0.85);
@@ -451,7 +420,7 @@
         <p>Senin, 1 Juni 2026</p>
     </section>
 	
-	<div class="container">
+	
 	<section class="reveal" id="ayat">
         <div class="verse-card">
             <div class="monogram-sf">S<span style="font-size: 0.6em; margin: 0 5px;">&</span>F</div>
@@ -467,7 +436,6 @@
             </p>
         </div>
     </section>
-	</div>
 	
 	
     <section class="reveal" id="couple">
@@ -499,9 +467,9 @@
         </div>
     </section>
 
-    <div class="container">
+    <div class="countdown-container reveal">
         <h2 class="serif" style="text-align: center; margin-bottom: 30px; font-size: clamp(2rem, 5vw, 2.5rem);">Menuju Hari Bahagia</h2>
-        <div class="countdown-container reveal" id="countdown">
+        <div class="countdown" id="countdown">
             <div><span id="days">00</span><br>Hari</div>
             <div><span id="hours">00</span><br>Jam</div>
             <div><span id="minutes">00</span><br>Menit</div>
@@ -561,33 +529,25 @@
         </div>
     </section>
 
-    
-	<section class="reveal" id="gift">
+    <section class="reveal" id="gift">
         <h2 class="section-title">Wedding Gift</h2>
         <div class="divider"></div>
+        <p style="max-width: 600px; margin: 0 auto; color: #555; font-size: 0.95rem;">Doa restu Anda merupakan karunia yang sangat berarti. Namun jika bermaksud memberikan tanda kasih, Anda dapat mengirimkannya melalui:</p>
         
-        <div class="gift-card-main">
-            <p style="max-width: 550px; margin: 0 auto; color: #555; font-size: 0.95rem; line-height: 1.8;">
-                Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda bermaksud memberikan ungkapan tanda kasih, Anda dapat mengirimkannya melalui:
-            </p>
-            
-            <div class="gift-container">
-                <div class="gift-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="Logo BRI" class="bank-logo" loading="lazy">
-                    <div class="rek-number" id="rek-bri">4273 0103 8686 530</div>
-                    <div class="rek-name">a.n. Fitria Tri Suzana</div>
-                    <button class="btn-copy" id="btn-copy-rek">Salin No. Rekening</button>
-                </div>
-
-                <a href="https://wa.me/6289661142567?text=B%C4%81rakall%C4%81hu%20laka%20wa%20b%C4%81raka%20%27alaika%20wa%20jama%27a%20bainakum%C4%81%20f%C4%AB%20khair.%0A%0AHalo%20Muhamad%20Sambas%20%26%20Fitria%20Tri%20Suzana%20%F0%9F%92%8C" class="btn-wa" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.004-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-                    Konfirmasi WhatsApp
-                </a>
+        <div class="gift-container">
+            <div class="gift-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="Logo BRI" class="bank-logo" loading="lazy">
+                <div class="rek-number" id="rek-bri">4273 0103 8686 530</div>
+                <div class="rek-name">a.n. Fitria Tri Suzana</div>
+                <button class="btn-copy" id="btn-copy-rek">Salin No. Rekening</button>
             </div>
+
+            <a href="https://wa.me/6289661142567?text=B%C4%81rakall%C4%81hu%20laka%20wa%20b%C4%81raka%20%27alaika%20wa%20jama%27a%20bainakum%C4%81%20f%C4%AB%20khair.%0A%0AHalo%20Muhamad%20Sambas%20%26%20Fitria%20Tri%20Suzana%20%F0%9F%92%8C" class="btn-wa" target="_blank" rel="noopener noreferrer">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.004-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                Konfirmasi WhatsApp
+            </a>
         </div>
     </section>
-	
-	
 
     <section class="reveal" id="rsvp">
         <h2 class="section-title">Ucapan & Doa</h2>
