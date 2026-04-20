@@ -106,6 +106,57 @@
         section { padding: 90px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
         .section-title { font-size: clamp(2.2rem, 6vw, 3.5rem); color: var(--primary); margin-bottom: 15px; }
         .divider { width: 60px; height: 2px; background-color: var(--accent); margin: 0 auto 30px auto; }
+		
+		
+		
+		/* --- KUTIPAN AYAT (QS. Ar-Rum) --- */
+        .verse-card {
+            background: rgba(255, 255, 255, 0.85); /* Kartu semi-transparan */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 50px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+        .monogram-sf {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 8vw, 5rem);
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 15px;
+            opacity: 0.8;
+            letter-spacing: -2px;
+        }
+        .surah-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .arabic-text {
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            line-height: 2.2;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: bold;
+            text-align: center;
+            direction: rtl; /* Mengatur arah baca dari kanan ke kiri */
+        }
+        .translation {
+            font-size: clamp(0.9rem, 3vw, 0.95rem);
+            color: #555;
+            line-height: 1.8;
+            text-align: center;
+            font-weight: 500;
+        }
+		
+		
+		
         
         /* --- 3. MEMPELAI (FIX BORDER-RADIUS & RASIO FOTO) --- */
         .couple-wrapper { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-top: 40px; }
@@ -254,6 +305,21 @@
         <h1>Sambas & Fitria</h1>
         <p>Senin, 1 Juni 2026</p>
     </section>
+	
+	
+	<section class="reveal" id="ayat">
+        <div class="verse-card">
+            <div class="monogram-sf">S<span style="font-size: 0.6em; margin: 0 5px;">&</span>F</div>
+            
+            <h2 class="surah-title serif">QS. Ar-Rum Ayat 21</h2>
+            
+            <p class="arabic-text">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
+            
+            <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."</p>
+        </div>
+    </section>
+	
+	
 
     <section class="reveal" id="couple">
         <h2 class="section-title">Pasangan Mempelai</h2>
