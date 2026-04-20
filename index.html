@@ -57,9 +57,7 @@
         .puitis-header { font-family: 'Cormorant Garamond', serif; font-weight: 600; letter-spacing: 1px; }
         .script-guest-name { font-family: 'Great Vibes', cursive; font-size: clamp(2rem, 8vw, 3.5rem); line-height: 1.2; word-break: break-word; }
 
-        /* --- 1. & 2. HERO & COVER (GPU Accelerated) --- */
        
-	   
 	   /* --- 1. & 2. HERO & COVER (Sesuai Referensi Desain) --- */
         .welcome-screen {
             position: fixed; inset: 0; z-index: 9999; 
@@ -121,10 +119,6 @@
             backdrop-filter: blur(5px); animation: pulse 2s infinite; color: white;
         }
 	   
-	   
-	   
-	   
-	   
 
         .hero { height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; background-color: var(--text-dark); background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('https://drive.google.com/thumbnail?id=1CLNCWWJc_uPAXs298sJn3EhJJw3DAviv&sz=w1080&auto=format&fit=crop'); background-size: cover; background-position: center; transform: translateZ(0); }
         .hero h1 { font-size: clamp(3.2rem, 12vw, 6rem); margin: 10px 0; font-style: italic; text-shadow: 3px 3px 10px rgba(0,0,0,0.6); line-height: 1.1; }
@@ -160,50 +154,59 @@
 		
 		
 		
-		/* --- KUTIPAN AYAT (QS. Ar-Rum) --- */
+		/* --- KUTIPAN AYAT (Standardized 2026) --- */
         .verse-card {
-            background: rgba(255, 255, 255, 0.85); /* Kartu semi-transparan */
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            padding: 50px 30px;
+            padding: 60px 25px;
             border-radius: 15px;
             box-shadow: var(--shadow-soft);
             max-width: 800px;
             margin: 0 auto;
-            border-top: 1px solid rgba(255,255,255,0.5);
-            border-bottom: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.5);
         }
         .monogram-sf {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 8vw, 5rem);
+            font-size: clamp(3rem, 7vw, 4.5rem);
             color: var(--accent);
             line-height: 1;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             opacity: 0.8;
-            letter-spacing: -2px;
         }
+        /* Judul disetarakan dengan fitur lain */
         .surah-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             color: var(--primary);
             margin-bottom: 30px;
-            letter-spacing: 1px;
+            text-transform: capitalize;
+        }
+		.bismillah-text {
+            font-family: 'serif';
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            color: var(--accent); /* Menggunakan warna aksen emas agar lebih manis */
+            margin-bottom: 15px;
+            font-weight: 500;
         }
         .arabic-text {
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            line-height: 2.2;
+            font-family: 'serif'; /* Gunakan font sistem yang support arabic agar bersih */
+            font-size: clamp(1.5rem, 5vw, 1.9rem);
+            line-height: 2.5;
             color: var(--text-dark);
-            margin-bottom: 25px;
-            font-weight: bold;
-            text-align: center;
-            direction: rtl; /* Mengatur arah baca dari kanan ke kiri */
-        }
-        .translation {
-            font-size: clamp(0.9rem, 3vw, 0.95rem);
-            color: #555;
-            line-height: 1.8;
-            text-align: center;
+            margin-bottom: 30px;
+            direction: rtl;
             font-weight: 500;
+        }
+        /* Terjemahan dibuat italic dan selaras dengan narasi fitur lain */
+        .translation {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            color: #666;
+            line-height: 1.8;
+            font-style: italic; /* Miring sesuai permintaan */
+            font-weight: 400;
+            max-width: 650px;
+            margin: 0 auto;
         }
 		
 		
@@ -380,11 +383,15 @@
         <div class="verse-card">
             <div class="monogram-sf">S<span style="font-size: 0.6em; margin: 0 5px;">&</span>F</div>
             
-            <h2 class="surah-title serif">QS. Ar-Rum Ayat 21</h2>
+            <h2 class="surah-title">QS. Ar-Rum Ayat 21</h2>
+
+            <p class="bismillah-text">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
             
             <p class="arabic-text">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
             
-            <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."</p>
+            <p class="translation">
+                "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+            </p>
         </div>
     </section>
 	
