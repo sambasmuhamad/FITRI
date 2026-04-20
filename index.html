@@ -237,6 +237,14 @@
             filter: sepia(0.15) brightness(0.95) contrast(1.05);
             transition: var(--transition-smooth);
         }
+		.salam-arab {
+            font-family: 'serif';
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 500;
+            direction: rtl;
+        }
         .ampersand { color: var(--accent); font-size: clamp(3rem, 8vw, 4rem); margin: 0 15px; }
 
         /* --- 4. COUNTDOWN & Native Dialog --- */
@@ -396,11 +404,15 @@
     </section>
 	
 	
-
     <section class="reveal" id="couple">
         <h2 class="section-title">Pasangan Mempelai</h2>
         <div class="divider"></div>
-        <p style="font-style: italic; color: #666; max-width: 600px; margin: 0 auto 30px; font-size: 0.95rem;">Assalamu'Alaikum Warahmatullaahi Wabarakaatuh<br>"Maha Suci Allah Yang Telah Menciptakan Makhluk-Nya Berpasang-Pasangan. Ya Allah Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Kami"</p>
+        
+        <p class="salam-arab">اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللّٰهِ وَبَرَكَاتُهُ</p>
+        
+        <p style="font-style: italic; color: #666; max-width: 600px; margin: 0 auto 30px; font-size: 0.95rem;">
+            "Maha Suci Allah Yang Telah Menciptakan Makhluk-Nya Berpasang-Pasangan. Ya Allah Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Kami"
+        </p>
         
         <div class="couple-wrapper">
             <div class="person">
