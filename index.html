@@ -69,6 +69,7 @@
         .welcome-screen {
             position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); will-change: transform;
+            /* Background Sampul tetap menggunakan image motif daun tunggal agar text terbaca jelas */
             background: linear-gradient(rgba(247, 245, 240, 0.85), rgba(247, 245, 240, 0.85)), url("https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z") center/cover no-repeat;
             padding: 12vh 20px 5vh; color: var(--text-dark);
         }
@@ -122,7 +123,8 @@
         /* 6. HERO & COUPLE */
         .hero { 
             height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z") center/cover no-repeat;
+            /* UPDATE: Menggunakan image background hero yang baru */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk") center/cover no-repeat;
         }
         .hero h1 { font-size: clamp(3.2rem, 12vw, 6rem); margin: 10px 0; font-style: italic; text-shadow: 3px 3px 10px rgba(0,0,0,0.6); line-height: 1.1; }
         .hero p { font-size: clamp(0.9rem, 3vw, 1.2rem); letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); }
@@ -256,7 +258,7 @@
                 <div class="monogram-sf">S<span style="font-size: 0.6em; margin: 0 5px;">&</span>F</div>
                 <h2 class="surah-title">QS. Ar-Rum Ayat 21</h2>
                 <p class="bismillah-text" aria-label="Bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-                <p class="arabic-text">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
+                <p class="arabic-text">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ mَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ Lِّقَوْمٍ yَّتَفَكَّرُوْنَ</p>
                 <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."</p>
             </div>
         </section>
