@@ -80,7 +80,8 @@
         .welcome-screen {
             position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); will-change: transform;
-            background: rgba(247, 245, 240, 0.6); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+            /* Gambar sampul diset di sini dengan gradien agar teks tetap terbaca */
+            background: linear-gradient(rgba(247, 245, 240, 0.8), rgba(247, 245, 240, 0.8)), url("https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z") center/cover no-repeat;
             padding: 12vh 20px 5vh; color: var(--text-dark);
         }
         .welcome-screen.slide-up { transform: translateY(-100dvh); }
@@ -112,7 +113,7 @@
         .btn-cover:hover { background: #333; transform: scale(1.02); }
         .btn-cover svg { width: 18px; height: 18px; }
 
-        .scroll-indicator { margin-top: 35px; width: 40px; height: 40px; border: 1.5px solid #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.2); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--text-dark); border-color: var(--text-dark); }
+        .scroll-indicator { margin-top: 35px; width: 40px; height: 40px; border: 1.5px solid #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--text-dark); border-color: var(--text-dark); }
 
         /* ==========================================
            5. AUDIO PLAYER
