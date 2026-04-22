@@ -13,9 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* ==========================================
-           1. VARIABLES, RESET & GLOBAL BACKGROUND
-           ========================================== */
         :root {
             --primary: #3c4a1e; --secondary: #74824a; --accent: #b58d55; 
             --bg-color: #f7f5f0; --text-dark: #2a3322; --text-light: #FFFFFF;
@@ -38,7 +35,6 @@
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
         .script-guest-name { font-family: 'Great Vibes', cursive; font-size: clamp(2rem, 8vw, 3.5rem); line-height: 1.2; word-break: break-word; }
 
-        /* Background Motif Daun Tunggal */
         body::before {
             content: ""; position: fixed; inset: 0; z-index: -1;
             background: var(--bg-color) url("https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z&sz=w1080") center/cover no-repeat;
@@ -47,21 +43,14 @@
 
         .container { width: 100%; padding: 60px 0; }
 
-        /* ==========================================
-           2. ANIMATIONS & HARDWARE ACCELERATION
-           ========================================== */
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.4); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes spin { 100% { transform: rotate(360deg); } }
         @keyframes eqBounce { 0%, 100% { height: 4px; } 50% { height: 16px; } }
 
-        /* GPU Boost untuk transisi mulus */
         .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition-smooth); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* ==========================================
-           3. UI COMPONENT BUNDLING (GLASS CARDS)
-           ========================================== */
         .verse-card, .gift-card-main, .rsvp-form {
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
             border-radius: 15px; box-shadow: var(--shadow-soft); margin: 0 auto; border: 1px solid rgba(255,255,255,0.5);
@@ -74,13 +63,9 @@
         .section-title { font-size: clamp(2.2rem, 6vw, 3.5rem); color: var(--primary); margin-bottom: 15px; }
         .divider { width: 60px; height: 2px; background-color: var(--accent); margin: 0 auto 30px auto; }
 
-        /* ==========================================
-           4. COVER SCREEN
-           ========================================== */
         .welcome-screen {
             position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); will-change: transform;
-            /* Gambar sampul diset di sini dengan gradien agar teks tetap terbaca */
             background: linear-gradient(rgba(247, 245, 240, 0.8), rgba(247, 245, 240, 0.8)), url("https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z") center/cover no-repeat;
             padding: 12vh 20px 5vh; color: var(--text-dark);
         }
@@ -111,13 +96,9 @@
             cursor: pointer; width: 100%; max-width: 250px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition-smooth); font-weight: 500;
         }
         .btn-cover:hover { background: #333; transform: scale(1.02); }
-        .btn-cover svg { width: 18px; height: 18px; }
 
         .scroll-indicator { margin-top: 35px; width: 40px; height: 40px; border: 1.5px solid #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--text-dark); border-color: var(--text-dark); }
 
-        /* ==========================================
-           5. AUDIO PLAYER
-           ========================================== */
         .spotify-btn { position: fixed; bottom: 25px; right: 25px; height: 55px; width: 55px; background-color: #282828; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: flex; align-items: center; cursor: pointer; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: var(--transition-smooth); overflow: hidden; will-change: width; }
         .spotify-btn.playing { width: 210px; background-color: #121212; border-color: #333; }
         .play-icon-wrapper { position: absolute; left: 0; top: 0; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; }
@@ -133,14 +114,12 @@
         .spotify-eq { display: flex; align-items: flex-end; gap: 2.5px; height: 16px; margin-left: 5px; flex-shrink: 0; }
         .spotify-eq .bar { width: 3px; background-color: #1ed760; border-radius: 2px; }
         .spotify-btn.playing .spotify-eq .bar { animation: eqBounce 1s ease-in-out infinite; }
-        .spotify-btn.playing .spotify-eq .bar:nth-child(1) { animation-duration: 0.6s; }
-        .spotify-btn.playing .spotify-eq .bar:nth-child(2) { animation-duration: 0.4s; }
-        .spotify-btn.playing .spotify-eq .bar:nth-child(3) { animation-duration: 0.7s; }
 
-        /* ==========================================
-           6. SECTIONS CONTENT (Hero, Ayat, Mempelai)
-           ========================================== */
-        .hero { height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://drive.google.com/thumbnail?id=1CLNCWWJc_uPAXs298sJn3EhJJw3DAviv&sz=w1080&auto=format&fit=crop') center/cover; }
+        /* Update Bagian Hero dengan gambar yang diminta */
+        .hero { 
+            height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z") center/cover no-repeat;
+        }
         .hero h1 { font-size: clamp(3.2rem, 12vw, 6rem); margin: 10px 0; font-style: italic; text-shadow: 3px 3px 10px rgba(0,0,0,0.6); line-height: 1.1; }
         .hero p { font-size: clamp(0.9rem, 3vw, 1.2rem); letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); }
         .guest-greeting { margin-bottom: 25px; padding: 15px 25px; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 10px 20px rgba(0,0,0,0.3); max-width: 90vw; }
@@ -158,9 +137,6 @@
         .salam-arab { font-family: 'serif'; font-size: clamp(1.4rem, 4vw, 1.8rem); color: var(--text-dark); margin-bottom: 10px; font-weight: 500; direction: rtl; }
         .ampersand { color: var(--accent); font-size: clamp(3rem, 8vw, 4rem); margin: 0 15px; }
 
-        /* ==========================================
-           7. UTILITIES (Countdown, Event, Gallery)
-           ========================================== */
         .countdown-container { background-color: var(--primary); color: white; padding: 70px 20px; width: 100vw; margin-left: calc(50% - 50vw); }
         .countdown { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 0 auto; }
         .countdown div { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 20px 10px; border-radius: 12px; min-width: 80px; flex: 1 1 100px; border: 1px solid rgba(255,255,255,0.2); }
@@ -183,17 +159,11 @@
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 35px; }
         .gallery-item { position: relative; width: 100%; height: 300px; border-radius: 10px; overflow: hidden; cursor: pointer; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); filter: sepia(0.15) brightness(0.95) contrast(1.05); }
-        .gallery-item::after { content: ''; position: absolute; inset: 0; z-index: 10; pointer-events: auto; }
-        .gallery-item:hover img { transform: scale(1.05); filter: sepia(0) brightness(1.05); }
 
-        /* ==========================================
-           8. GIFT & RSVP FORMS
-           ========================================== */
         .gift-container { margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
         .gift-card { background: rgba(255,255,255,0.95); padding: 35px 30px; border-radius: 15px; box-shadow: var(--shadow-soft); text-align: left; margin: 0; width: 100%; max-width: 400px; border-top: 4px solid var(--accent); }
         .bank-logo { height: 35px; object-fit: contain; margin: 0 0 20px 0; display: block; max-width: 100%; }
         .rek-number { font-size: clamp(1.4rem, 5vw, 1.8rem); font-family: 'Playfair Display', serif; font-weight: bold; letter-spacing: 2px; margin: 15px 0 5px; }
-        .rek-name { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
         .btn-copy { background-color: var(--bg-color); color: var(--text-dark); border: 1px solid var(--accent); padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; font-family: inherit; transition: var(--transition-smooth);}
         .btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 14px 25px; border-radius: 25px; font-weight: 600; width: 100%; max-width: 350px; transition: var(--transition-smooth); }
 
@@ -202,32 +172,23 @@
         input[type="text"], select, textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 16px; outline: none; transition: var(--transition-smooth); background-color: #fafafa;}
         input:focus, select:focus, textarea:focus { border-color: var(--accent); background-color: white; }
         button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); margin-top: 10px; }
-        button[type="submit"]:disabled { background-color: #95a5a6; cursor: not-allowed; }
         
         .guestbook-wrapper { max-width: 600px; margin: 40px auto 0; text-align: left;}
         .guest-card { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease; word-wrap: break-word;}
-        .guest-card h4 { display: flex; justify-content: space-between; align-items: center; gap: 5px;}
         .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; }
         .badge-hadir { background-color: #e8f5e9; color: #2e7d32; }
         .badge-absen { background-color: #ffebee; color: #c0392b; }
         
         .pagination-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; }
         .pagination-controls button { background-color: var(--secondary); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-family: inherit; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); }
-        .pagination-controls button:disabled { background-color: #ccc; cursor: not-allowed; }
-        .page-info { font-size: 0.85rem; font-weight: 600; padding: 5px 12px; border-radius: 15px; background: rgba(255,255,255,0.7); }
 
-        /* ==========================================
-           9. RESPONSIVE MOBILE
-           ========================================== */
         @media (max-width: 768px) {
             section { padding: 60px 20px; }
             .couple-wrapper { flex-direction: column; }
-            .ampersand { transform: rotate(0deg); margin: 5px 0; }
             .countdown div { min-width: 70px; flex: 1 1 calc(50% - 15px); }
             .event-card { flex: 1 1 100%; }
             .pagination-controls { flex-wrap: wrap; justify-content: center; }
             .page-info { order: -1; width: 100%; text-align: center; margin-bottom: 5px; background: transparent; }
-            .verse-card, .gift-card-main { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -270,13 +231,12 @@
     </section>
     
     <main class="container">
-        
         <section class="reveal" id="ayat">
             <div class="verse-card">
                 <div class="monogram-sf">S<span style="font-size: 0.6em; margin: 0 5px;">&</span>F</div>
                 <h2 class="surah-title">QS. Ar-Rum Ayat 21</h2>
                 <p class="bismillah-text">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-                <p class="arabic-text">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
+                <p class="arabic-text">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا lِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
                 <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."</p>
             </div>
         </section>
@@ -404,14 +364,11 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", () => {
-        
-        // 1. SECURITY
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = e => {
             if (e.key === "F12" || (e.ctrlKey && ["I", "i", "J", "j", "C", "c", "U", "u", "S", "s"].includes(e.key))) return false;
         };
 
-        // 2. DOM Cache (Optimization)
         const d = document;
         const scriptURL = 'https://script.google.com/macros/s/AKfycbz_LkzasYYhWwOgIaq9MnCmJlDcdIPJVYjZqmbeJXr07fXnUv8LBUPpTOgLkU6_bPPh/exec'; 
         const welcomeScreen = d.getElementById('welcome-screen'), guestInput = d.getElementById('guest-name-input');
@@ -419,7 +376,6 @@
         const audio = d.getElementById("bg-music"), audioBtn = d.getElementById("audio-toggle");
         const modal = d.getElementById("calendarModal");
 
-        // 3. LOGIKA INPUT NAMA
         guestInput.addEventListener('input', e => e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, ''));
         const isValidName = name => /^[a-zA-Z\s]{3,}$/.test(name.trim());
 
@@ -430,10 +386,8 @@
             errorMsg.style.display = 'none';
             d.getElementById('display-guest-name').innerText = name;
             rsvpNamaInput.value = name; 
-            
             welcomeScreen.classList.add('slide-up');
             d.body.classList.add('opened');
-            
             const p = audio.play();
             if (p !== undefined) p.catch(() => console.log("Audio siap diputar manual."));
         };
@@ -441,12 +395,10 @@
         d.getElementById('btn-open-invitation').addEventListener('click', bukaUndangan);
         guestInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); bukaUndangan(); } });
 
-        // 4. AUDIO UI
         audio.addEventListener('play', () => audioBtn.classList.add('playing'));
         audio.addEventListener('pause', () => audioBtn.classList.remove('playing'));
         audioBtn.addEventListener('click', () => audio.paused ? audio.play() : audio.pause());
 
-        // 5. CALENDAR
         d.getElementById("btn-show-calendar").addEventListener('click', () => modal.showModal());
         d.getElementById("closeCalendar").addEventListener('click', () => modal.close());
         d.getElementById("btn-apple-cal").addEventListener('click', () => {
@@ -455,10 +407,8 @@
             const link = d.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'Pernikahan_Sambas_Fitri.ics'; d.body.appendChild(link); link.click(); link.remove();
         });
 
-        // 6. COUNTDOWN
         const targetDate = new Date("2026-06-01T08:00:00+07:00").getTime();
         const elDays = d.getElementById("days"), elHours = d.getElementById("hours"), elMins = d.getElementById("minutes"), elSecs = d.getElementById("seconds");
-        
         const timer = setInterval(() => {
             const dist = targetDate - Date.now();
             if (dist < 0) return (clearInterval(timer), d.getElementById("countdown").innerHTML = "<h3 class='serif'>Acara Sedang Berlangsung!</h3>");
@@ -468,7 +418,6 @@
             elSecs.innerText = String(Math.floor((dist % 60000) / 1000)).padStart(2, '0');
         }, 1000);
 
-        // 7. COPY REKENING
         d.getElementById('btn-copy-rek').addEventListener('click', async function() {
             const text = d.getElementById('rek-bri').innerText, orig = this.innerText;
             const success = () => { this.innerText = "Disalin! ✔️"; this.style.background = "#2a3322"; this.style.color = "white"; setTimeout(() => { this.innerText = orig; this.style.background = ""; this.style.color = ""; }, 2000); };
@@ -479,15 +428,12 @@
             }
         });
 
-        // 8. SCROLL OBSERVER
         const obs = new IntersectionObserver((entries, o) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("active"); o.unobserve(e.target); } }), { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
         d.querySelectorAll(".reveal").forEach(el => obs.observe(el));
 
-        // 9. RSVP & GUESTBOOK
         const form = d.forms['submit-to-google-sheet'], btnKirim = d.getElementById('btn-kirim');
         const gbList = d.getElementById('guestbook-list'), pagCtrl = d.getElementById('pagination-controls');
         let allGuestData = [], currentPage = 1; const itemsPerPage = 5;
-
         const sanitizeHTML = str => { const div = d.createElement('div'); div.textContent = str || ""; return div.innerHTML; };
 
         if(localStorage.getItem('rsvp_status') === 'done') { btnKirim.innerText = 'Pesan Terkirim ✔️'; btnKirim.disabled = true; }
@@ -501,15 +447,7 @@
                 gbList.innerHTML += `<div class="guest-card"><h4>${sanitizeHTML(g.nama)} <span class="guest-badge ${badge}">${sanitizeHTML(g.kehadiran)}</span></h4><p>"${sanitizeHTML(g.pesan)}"</p></div>`;
             });
             pagCtrl.style.display = totalPages > 1 ? 'flex' : 'none';
-            if (totalPages > 1) {
-                d.getElementById('page-info').innerText = `Halaman ${currentPage} / ${totalPages}`;
-                d.getElementById('btn-prev').disabled = currentPage === 1;
-                d.getElementById('btn-next').disabled = currentPage === totalPages;
-            }
         };
-
-        d.getElementById('btn-prev').addEventListener('click', () => { currentPage--; renderGB(); gbList.scrollIntoView({behavior: 'smooth'}); });
-        d.getElementById('btn-next').addEventListener('click', () => { currentPage++; renderGB(); gbList.scrollIntoView({behavior: 'smooth'}); });
 
         const fetchGB = async () => {
             try { const res = await fetch(scriptURL); allGuestData = (await res.json()).reverse(); currentPage = 1; renderGB(); } 
@@ -520,16 +458,13 @@
         form.addEventListener('submit', async e => {
             e.preventDefault();
             if(d.getElementById('honeypot').value || !isValidName(rsvpNamaInput.value)) return;
-
             btnKirim.innerText = 'Mengirim...'; btnKirim.disabled = true;
-            const controller = new AbortController(), timeoutId = setTimeout(() => controller.abort(), 10000);
-
             try {
-                await fetch(scriptURL, { method: 'POST', body: new FormData(form), signal: controller.signal });
-                clearTimeout(timeoutId); btnKirim.innerText = 'Berhasil ✔️'; localStorage.setItem('rsvp_status', 'done');
+                await fetch(scriptURL, { method: 'POST', body: new FormData(form)});
+                btnKirim.innerText = 'Berhasil ✔️'; localStorage.setItem('rsvp_status', 'done');
                 form.reset(); fetchGB();
             } catch (err) {
-                clearTimeout(timeoutId); btnKirim.innerText = 'Gagal, Coba Lagi'; btnKirim.disabled = false;
+                btnKirim.innerText = 'Gagal, Coba Lagi'; btnKirim.disabled = false;
             }
         });
     });
