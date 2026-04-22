@@ -166,7 +166,6 @@
         .couple-wrapper { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-top: 40px; }
         .person { flex: 1 1 300px; display: flex; flex-direction: column; align-items: center; }
         
-        /* FIX: Rasio gambar dijamin 1:1 dan tidak memotong dahi */
         .person-img-wrapper { width: 200px; aspect-ratio: 1 / 1; border-radius: 50%; border: 5px solid var(--secondary); margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); overflow: hidden; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color); }
         .person-img-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: sepia(0.15) brightness(0.95) contrast(1.05); transition: var(--transition-smooth); }
         
@@ -210,7 +209,6 @@
         .gift-card { background: rgba(255,255,255,0.95); padding: 35px 30px; border-radius: 15px; box-shadow: var(--shadow-soft); text-align: left; margin: 0; width: 100%; max-width: 400px; border-top: 4px solid var(--accent); }
         .bank-logo { height: 35px; object-fit: contain; margin: 0 0 20px 0; display: block; max-width: 100%; }
         
-        /* FIX: Font Size rekening responsif tanpa overlap */
         .rek-number { font-size: clamp(1.1rem, 4.5vw, 1.5rem); font-family: 'Playfair Display', serif; font-weight: bold; letter-spacing: 2px; margin: 15px 0 5px; word-wrap: break-word;}
         .rek-name { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
         
@@ -224,11 +222,21 @@
         button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); margin-top: 10px; }
         button[type="submit"]:disabled { background-color: #95a5a6; cursor: not-allowed; }
         
+        /* BUKU TAMU & AVATAR UPDATES */
         .guestbook-wrapper { max-width: 600px; margin: 40px auto 0; text-align: left;}
         .guest-card { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease; word-wrap: break-word;}
-        .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; }
+        
+        /* Flexbox untuk menata Avatar dan Nama secara berdampingan */
+        .guest-card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+        .guest-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #eee; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+        .guest-info { display: flex; flex-direction: column; align-items: flex-start; gap: 6px;}
+        .guest-info h4 { margin: 0; font-size: 1.05rem; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;}
+        
+        /* Badge Kehadiran */
+        .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px;}
         .badge-hadir { background-color: #e8f5e9; color: #2e7d32; }
         .badge-absen { background-color: #ffebee; color: #c0392b; }
+        .badge-ragu { background-color: #fff3e0; color: #e65100; } /* Warna Oranye untuk Ragu-ragu */
         
         .pagination-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; }
         .pagination-controls button { background-color: var(--secondary); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-family: inherit; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); }
@@ -403,8 +411,9 @@
                 <label for="kehadiran">Konfirmasi Kehadiran</label>
                 <select name="kehadiran" id="kehadiran" required>
                     <option value="" disabled selected>Apakah Anda akan hadir?</option>
-                    <option value="Hadir">Ya, Saya akan hadir</option>
-                    <option value="Tidak Hadir">Maaf, saya tidak bisa hadir</option>
+                    <option value="Hadir">1. Oke, saya akan hadir</option>
+                    <option value="Tidak Hadir">2. Maaf, Saya Tidak Bisa Hadir</option>
+                    <option value="Ragu-ragu">3. Maaf, Saat ini masih ragu</option>
                 </select>
             </div>
             <div class="input-group">
@@ -553,14 +562,34 @@
         };
         checkRSVPStatus();
 
-        // Render Buku Tamu
+        // UPDATE: Render Buku Tamu dengan Dinamis Avatar & 3 Badge
         const renderGB = () => {
             if(!allGuestData.length) return (gbList.innerHTML = '<p style="text-align: center; color: #888;">Belum ada ucapan.</p>', pagCtrl.style.display = 'none');
             gbList.innerHTML = ''; 
             const totalPages = Math.ceil(allGuestData.length / itemsPerPage);
             allGuestData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).forEach(g => {
-                const badge = g.kehadiran === 'Hadir' ? 'badge-hadir' : 'badge-absen';
-                gbList.innerHTML += `<div class="guest-card"><h4>${sanitizeHTML(g.nama)} <span class="guest-badge ${badge}">${sanitizeHTML(g.kehadiran)}</span></h4><p>"${sanitizeHTML(g.pesan)}"</p></div>`;
+                
+                // Logika Pewarnaan Badge Kehadiran
+                let badgeClass = 'badge-hadir';
+                let kehadiranTeks = g.kehadiran;
+                if (kehadiranTeks === 'Tidak Hadir') badgeClass = 'badge-absen';
+                if (kehadiranTeks === 'Ragu-ragu') badgeClass = 'badge-ragu';
+
+                // Pembuatan URL Avatar Inisial menggunakan UI-Avatars API (Tanpa butuh library tambahan)
+                // Warna background disamakan dengan var(--accent) yaitu b58d55
+                const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(g.nama)}&background=b58d55&color=fff&rounded=true&bold=true`;
+
+                // Render struktur HTML per Kartu Ucapan
+                gbList.innerHTML += `
+                <div class="guest-card">
+                    <div class="guest-card-header">
+                        <img src="${sanitizeHTML(avatarUrl)}" alt="Avatar" class="guest-avatar" loading="lazy">
+                        <div class="guest-info">
+                            <h4>${sanitizeHTML(g.nama)} <span class="guest-badge ${badgeClass}">${sanitizeHTML(kehadiranTeks)}</span></h4>
+                        </div>
+                    </div>
+                    <p style="margin-top: 5px; color: #444; line-height: 1.5; font-size: 0.95rem;">"${sanitizeHTML(g.pesan)}"</p>
+                </div>`;
             });
             pagCtrl.style.display = totalPages > 1 ? 'flex' : 'none';
             if (totalPages > 1) {
