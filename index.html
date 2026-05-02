@@ -159,11 +159,12 @@
            6. HERO SECTION (Kualitas HD & Pencerahan)
            ========================================= */
         .hero { 
-            position: relative;
-            height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; 
-            /* Perbaikan Gradasi agar foto background lebih cerah namun teks tetap terbaca jelas */
-            background: linear-gradient(to bottom, rgba(20, 25, 15, 0.4) 0%, rgba(20, 25, 15, 0.7) 100%), url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1920") center/cover no-repeat;
-            image-rendering: high-quality;
+			position: relative;
+			height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; 
+			/* Overlay dicerahkan menggunakan tone hangat/netral yang transparan */
+			background: linear-gradient(to bottom, rgba(247, 245, 240, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%), url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1920") center/cover no-repeat;
+			image-rendering: high-quality;
+			}
         }
         .hero-content { display: flex; flex-direction: column; align-items: center; z-index: 2; width: 100%; }
         .hero .intro-text { font-size: clamp(0.9rem, 3vw, 1.2rem); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; font-weight: 500; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
