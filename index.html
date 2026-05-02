@@ -295,82 +295,80 @@
 		
 		
 		/* =========================================
-   CLOSING SECTION STYLES
+   CLOSING SECTION (NO CARD - VINTAGE STYLE)
    ========================================= */
-.closing-section {
+.closing-botanical {
     position: relative;
     min-height: 100vh;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 60px 20px;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    /* Ganti URL gambar di bawah dengan foto prewedding bertema hutan/taman atau background vintage */
-    background: linear-gradient(rgba(247, 245, 240, 0.5), rgba(247, 245, 240, 0.7)), 
-                url('https://images.unsplash.com/photo-1518131672697-613add3467f7?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
-    overflow: hidden;
+    /* Latar belakang menggunakan motif botanical vintage sesuai referensi */
+    background: linear-gradient(rgba(247, 245, 240, 0.4), rgba(247, 245, 240, 0.4)), 
+                url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    padding: 40px 20px;
 }
 
-.closing-container {
-    max-width: 800px;
-    width: 100%;
-    z-index: 2;
-    padding: 60px 30px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 30px;
+.closing-wrapper {
+    max-width: 900px;
+    z-index: 5;
+    /* Tanpa background-color, border, atau blur */
 }
 
 .closing-thanks {
-    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     color: var(--text-dark);
-    margin-bottom: 30px;
-    line-height: 1.8;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-inline: auto;
     font-weight: 500;
 }
 
 .closing-salam {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     color: var(--primary);
-    margin-bottom: 25px;
+    margin-bottom: 40px;
+    font-weight: 500;
 }
 
 .closing-names {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 10vw, 5.5rem);
-    color: var(--accent);
-    margin-bottom: 15px;
-    line-height: 1.2;
+    font-size: clamp(4rem, 12vw, 7rem);
+    color: var(--primary); /* Menggunakan warna primer gelap agar kontras dengan BG terang */
+    margin-bottom: 10px;
+    line-height: 1.1;
+    filter: drop-shadow(1px 1px 2px rgba(255,255,255,0.8));
 }
 
-.closing-divider {
-    width: 120px;
-    height: 2px;
+.closing-line {
+    width: 150px;
+    height: 1.5px;
     background: var(--accent);
-    margin: 20px auto;
+    margin: 25px auto;
 }
 
 .closing-date {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--text-dark);
 }
 
-/* Penyesuaian Mobile */
+/* Optimalisasi Mobile */
 @media (max-width: 768px) {
-    .closing-section {
-        background-attachment: scroll; /* Mencegah lag di mobile */
+    .closing-botanical {
+        background-position: 70% center; /* Menggeser posisi gambar agar teks tetap di area bersih */
+        padding-bottom: 100px; /* Memberi ruang agar tidak tertutup button audio */
     }
-    .closing-container {
-        padding: 40px 20px;
-        margin: 0 10px;
+    .closing-thanks {
+        padding: 0 10px;
     }
 }
 		
@@ -563,21 +561,19 @@
         </div>
     </section>
 	
-	<section class="closing-section reveal" id="closing">
-    <div class="closing-container">
-        <div class="closing-content">
-            <p class="closing-thanks">
-                Atas kehadiran dan do'a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
-            </p>
-            
-            <h3 class="closing-salam">Wassalamualaikum Wr. Wb.</h3>
-            
-            <h2 class="closing-names">Sambas & Fitria</h2>
-            
-            <div class="closing-divider"></div>
-            
-            <p class="closing-date">Senin, 1 Juni 2026</p>
-        </div>
+	<section class="closing-botanical reveal" id="closing">
+    <div class="closing-wrapper">
+        <p class="closing-thanks">
+            Atas kehadiran dan do'a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
+        </p>
+        
+        <h3 class="closing-salam">Wassalamualaikum Wr. Wb.</h3>
+        
+        <h2 class="closing-names">Sambas & Fitria</h2>
+        
+        <div class="closing-line"></div>
+        
+        <p class="closing-date">Senin, 1 Juni 2026</p>
     </div>
 </section>
 
