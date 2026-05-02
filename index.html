@@ -98,43 +98,46 @@
         .divider { width: 80px; height: 3px; background-color: var(--accent); margin: 0 auto 30px auto; border-radius: 2px;}
 
         /* =========================================
-           4. COVER SCREEN (SAMPUL)
-           ========================================= */
-        .welcome-screen {
-            position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
-            transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1); will-change: transform;
-            background: linear-gradient(rgba(247, 245, 240, 0.88), rgba(247, 245, 240, 0.88)), url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1000-h2000&auto=format&fit=crop") center/cover no-repeat;
-            padding: 12dvh 20px 6dvh; color: var(--text-dark);
-        }
-        .welcome-screen.slide-up { transform: translateY(-100dvh); }
-        
-        .cover-top { animation: fadeIn 1.2s ease-out; }
-        .cover-subtitle { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--primary);}
-        .cover-monogram { font-family: 'Cormorant Garamond', serif; display: flex; justify-content: center; align-items: center; margin-top: 10px;}
-        .cover-monogram .letter-s { font-size: clamp(6.5rem, 22vw, 9rem); margin-right: -25px; line-height: 1; color: var(--text-dark);}
-        .cover-monogram .letter-f { font-size: clamp(5rem, 16vw, 7.5rem); margin-top: 45px; line-height: 1; color: var(--accent);}
+   4. COVER SCREEN (SAMPUL - VINTAGE MATTE STYLE)
+   ========================================= */
+.welcome-screen {
+    position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
+    transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1); will-change: transform;
+    /* Menggunakan URL gambar yang Anda inginkan dengan overlay warna matte vintage yang tipis */
+    background: linear-gradient(rgba(247, 245, 240, 0.3), rgba(247, 245, 240, 0.3)), 
+                url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1920") center/cover no-repeat;
+    padding: 12dvh 20px 6dvh; 
+    color: var(--text-dark);
+}
+.welcome-screen.slide-up { transform: translateY(-100dvh); }
 
-        .cover-bottom { animation: fadeIn 1.8s ease-out; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .cover-greeting { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px; }
-        
-        .cover-input { 
-            background: transparent; border: none; border-bottom: 2px solid rgba(42, 51, 34, 0.3); 
-            font-family: 'Playfair Display', serif; font-size: 1.6rem; text-align: center; color: var(--text-dark); 
-            padding: 8px; margin-bottom: 10px; outline: none; width: 85%; max-width: 320px; transition: var(--transition-smooth);
-        }
-        .cover-input:focus { border-bottom: 2px solid var(--accent); }
-        .cover-input::placeholder { color: rgba(42, 51, 34, 0.3); font-style: italic; font-size: 1.3rem; }
-        
-        .error-msg { color: #d32f2f; font-size: 0.85rem; margin-bottom: 20px; font-weight: 600; display: none; background: #ffebee; padding: 8px 15px; border-radius: 8px; border: 1px solid #ffcdd2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
+.cover-top { animation: fadeIn 1.2s ease-out; }
+.cover-subtitle { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--primary);}
+.cover-monogram { font-family: 'Cormorant Garamond', serif; display: flex; justify-content: center; align-items: center; margin-top: 10px;}
+.cover-monogram .letter-s { font-size: clamp(6.5rem, 22vw, 9rem); margin-right: -25px; line-height: 1; color: var(--text-dark);}
+.cover-monogram .letter-f { font-size: clamp(5rem, 16vw, 7.5rem); margin-top: 45px; line-height: 1; color: var(--accent);}
 
-        .btn-cover { 
-            background: var(--text-dark); color: #fff; border: none; border-radius: 30px; padding: 14px 30px; 
-            display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; 
-            cursor: pointer; width: 100%; max-width: 260px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: var(--transition-smooth); font-weight: 600;
-        }
-        .btn-cover:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(181, 141, 85, 0.3); }
+.cover-bottom { animation: fadeIn 1.8s ease-out; display: flex; flex-direction: column; align-items: center; width: 100%; }
+.cover-greeting { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px; }
 
-        .scroll-indicator { margin-top: 40px; width: 45px; height: 45px; border: 2px solid var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.5); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--accent); }
+.cover-input { 
+    background: transparent; border: none; border-bottom: 2px solid rgba(42, 51, 34, 0.3); 
+    font-family: 'Playfair Display', serif; font-size: 1.6rem; text-align: center; color: var(--text-dark); 
+    padding: 8px; margin-bottom: 10px; outline: none; width: 85%; max-width: 320px; transition: var(--transition-smooth);
+}
+.cover-input:focus { border-bottom: 2px solid var(--accent); }
+.cover-input::placeholder { color: rgba(42, 51, 34, 0.3); font-style: italic; font-size: 1.3rem; }
+
+.error-msg { color: #d32f2f; font-size: 0.85rem; margin-bottom: 20px; font-weight: 600; display: none; background: #ffebee; padding: 8px 15px; border-radius: 8px; border: 1px solid #ffcdd2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
+
+.btn-cover { 
+    background: var(--text-dark); color: #fff; border: none; border-radius: 30px; padding: 14px 30px; 
+    display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; 
+    cursor: pointer; width: 100%; max-width: 260px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: var(--transition-smooth); font-weight: 600;
+}
+.btn-cover:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(181, 141, 85, 0.3); }
+
+.scroll-indicator { margin-top: 40px; width: 45px; height: 45px; border: 2px solid var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.5); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--accent); }
 
         /* =========================================
            5. AUDIO PLAYER
