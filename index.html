@@ -12,9 +12,9 @@
     <meta property="og:title" content="The Wedding of Sambas & Fitria">
     <meta property="og:description" content="Senin, 1 Juni 2026. Mohon doa restu dan kehadirannya dalam acara pernikahan kami.">
     <meta property="og:image" content="https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1200-h630-c">
-	<meta property="og:image:width" content="1200">
-	<meta property="og:image:height" content="630">
-	<meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Wedding of Sambas & Fitria">
@@ -98,95 +98,87 @@
         .divider { width: 80px; height: 3px; background-color: var(--accent); margin: 0 auto 30px auto; border-radius: 2px;}
 
         /* =========================================
-   4. COVER SCREEN (SAMPUL - VINTAGE MATTE STYLE)
-   ========================================= */
-.welcome-screen {
-    position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
-    transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1); will-change: transform;
-    /* Menggunakan URL gambar yang Anda inginkan dengan overlay warna matte vintage yang tipis */
-    background: linear-gradient(rgba(247, 245, 240, 0.3), rgba(247, 245, 240, 0.3)), 
-                url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1920") center/cover no-repeat;
-    padding: 12dvh 20px 6dvh; 
-    color: var(--text-dark);
-}
-.welcome-screen.slide-up { transform: translateY(-100dvh); }
+           4. COVER SCREEN (SAMPUL - VINTAGE MATTE STYLE)
+           ========================================= */
+        .welcome-screen {
+            position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
+            transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1); will-change: transform;
+            background: linear-gradient(rgba(247, 245, 240, 0.3), rgba(247, 245, 240, 0.3)), 
+                        url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1920") center/cover no-repeat;
+            padding: 12dvh 20px 6dvh; 
+            color: var(--text-dark);
+        }
+        .welcome-screen.slide-up { transform: translateY(-100dvh); }
 
-.cover-top { animation: fadeIn 1.2s ease-out; }
-.cover-subtitle { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--primary);}
-.cover-monogram { font-family: 'Cormorant Garamond', serif; display: flex; justify-content: center; align-items: center; margin-top: 10px;}
-.cover-monogram .letter-s { font-size: clamp(6.5rem, 22vw, 9rem); margin-right: -25px; line-height: 1; color: var(--text-dark);}
-.cover-monogram .letter-f { font-size: clamp(5rem, 16vw, 7.5rem); margin-top: 45px; line-height: 1; color: var(--accent);}
+        .cover-top { animation: fadeIn 1.2s ease-out; }
+        .cover-subtitle { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--primary);}
+        .cover-monogram { font-family: 'Cormorant Garamond', serif; display: flex; justify-content: center; align-items: center; margin-top: 10px;}
+        .cover-monogram .letter-s { font-size: clamp(6.5rem, 22vw, 9rem); margin-right: -25px; line-height: 1; color: var(--text-dark);}
+        .cover-monogram .letter-f { font-size: clamp(5rem, 16vw, 7.5rem); margin-top: 45px; line-height: 1; color: var(--accent);}
 
-.cover-bottom { animation: fadeIn 1.8s ease-out; display: flex; flex-direction: column; align-items: center; width: 100%; }
-.cover-greeting { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px; }
+        .cover-bottom { animation: fadeIn 1.8s ease-out; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .cover-greeting { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 15px; }
 
-/* =========================================
-   UPDATE STYLE INPUT NAMA (ELEGANT GLASS)
-   ========================================= */
-.cover-input { 
-    background: rgba(255, 255, 255, 0.3); /* Transparansi putih lembut */
-    backdrop-filter: blur(10px); /* Efek kaca buram */
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Border tipis transparan */
-    border-bottom: 2px solid var(--accent); /* Aksen garis bawah emas */
-    border-radius: 15px; /* Sudut melengkung halus */
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.5rem; 
-    text-align: center; 
-    color: var(--text-dark); 
-    padding: 15px 20px; 
-    margin-bottom: 15px; 
-    outline: none; 
-    width: 90%; 
-    max-width: 380px; 
-    transition: var(--transition-smooth);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); /* Shadow halus agar terlihat "melayang" */
-}
+        /* INPUT NAMA (ELEGANT GLASS) */
+        .cover-input { 
+            background: rgba(255, 255, 255, 0.3); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5); 
+            border-bottom: 2px solid var(--accent); 
+            border-radius: 15px; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.5rem; 
+            text-align: center; 
+            color: var(--text-dark); 
+            padding: 15px 20px; 
+            margin-bottom: 15px; 
+            outline: none; 
+            width: 90%; 
+            max-width: 380px; 
+            transition: var(--transition-smooth);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); 
+        }
 
-/* Efek saat kolom di-klik */
-.cover-input:focus { 
-    background: rgba(255, 255, 255, 0.6); 
-    border-color: var(--primary); 
-    box-shadow: 0 8px 32px rgba(181, 141, 85, 0.2);
-    transform: translateY(-2px);
-}
+        .cover-input:focus { 
+            background: rgba(255, 255, 255, 0.6); 
+            border-color: var(--primary); 
+            box-shadow: 0 8px 32px rgba(181, 141, 85, 0.2);
+            transform: translateY(-2px);
+        }
 
-.cover-input::placeholder { 
-    color: rgba(42, 51, 34, 0.5); 
-    font-style: italic; 
-    font-size: 1.2rem; 
-}
+        .cover-input::placeholder { 
+            color: rgba(42, 51, 34, 0.5); 
+            font-style: italic; 
+            font-size: 1.2rem; 
+        }
 
+        .error-msg { color: #d32f2f; font-size: 0.85rem; margin-bottom: 20px; font-weight: 600; display: none; background: #ffebee; padding: 8px 15px; border-radius: 8px; border: 1px solid #ffcdd2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
 
-.cover-input:focus { border-bottom: 2px solid var(--accent); }
-.cover-input::placeholder { color: rgba(42, 51, 34, 0.3); font-style: italic; font-size: 1.3rem; }
+        .btn-cover { 
+            background: var(--primary); 
+            color: #fff; 
+            border: none; 
+            border-radius: 50px; 
+            padding: 16px 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 12px; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1rem; 
+            cursor: pointer; 
+            width: 100%; 
+            max-width: 280px; 
+            box-shadow: 0 10px 25px rgba(60, 74, 30, 0.2); 
+            transition: var(--transition-smooth); 
+            font-weight: 600;
+            margin-top: 10px;
+        }
 
-.error-msg { color: #d32f2f; font-size: 0.85rem; margin-bottom: 20px; font-weight: 600; display: none; background: #ffebee; padding: 8px 15px; border-radius: 8px; border: 1px solid #ffcdd2; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
+        .btn-cover:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(181, 141, 85, 0.3); }
 
-.btn-cover { 
-    background: var(--primary); /* Menggunakan hijau gelap agar elegan */
-    color: #fff; 
-    border: none; 
-    border-radius: 50px; /* Bentuk kapsul yang lebih modern */
-    padding: 16px 40px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 12px; 
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 1rem; 
-    cursor: pointer; 
-    width: 100%; 
-    max-width: 280px; 
-    box-shadow: 0 10px 25px rgba(60, 74, 30, 0.2); 
-    transition: var(--transition-smooth); 
-    font-weight: 600;
-    margin-top: 10px;
-}
-
-.btn-cover:hover { background: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 25px rgba(181, 141, 85, 0.3); }
-
-.scroll-indicator { margin-top: 40px; width: 45px; height: 45px; border: 2px solid var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.5); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--accent); }
+        .scroll-indicator { margin-top: 40px; width: 45px; height: 45px; border: 2px solid var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.5); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--accent); }
 
         /* =========================================
            5. AUDIO PLAYER
@@ -207,65 +199,62 @@
         .spotify-eq .bar { width: 3px; background-color: #1ed760; border-radius: 2px; }
         .spotify-btn.playing .spotify-eq .bar { animation: eqBounce 1s ease-in-out infinite; }
 
-       /* =========================================
-   6. HERO SECTION (Warna & Kontras Disesuaikan)
-   ========================================= */
-.hero { 
-    position: relative;
-    height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
-    /* Mengubah warna dasar teks menjadi gelap agar selaras dengan BG terang */
-    color: var(--text-dark); 
-    padding: 20px; 
-    /* Gradasi dicerahkan, memberi efek warm & HD */
-    background: linear-gradient(to bottom, rgba(247, 245, 240, 0.2) 0%, rgba(247, 245, 240, 0.6) 100%), url("https://drive.google.com/thumbnail?id=1IMl4BRrfq0A5gMgbbYwIwXuf4BsF5Lm0&sz=w1920") center/cover no-repeat;
-    image-rendering: high-quality;
-}
+        /* =========================================
+           6. HERO SECTION (Warna & Kontras Disesuaikan)
+           ========================================= */
+        .hero { 
+            position: relative;
+            height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
+            color: var(--text-dark); 
+            padding: 20px; 
+            background: linear-gradient(to bottom, rgba(247, 245, 240, 0.2) 0%, rgba(247, 245, 240, 0.6) 100%), url("https://drive.google.com/thumbnail?id=1IMl4BRrfq0A5gMgbbYwIwXuf4BsF5Lm0&sz=w1920") center/cover no-repeat;
+            image-rendering: high-quality;
+        }
 
-.hero-content { display: flex; flex-direction: column; align-items: center; z-index: 2; width: 100%; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; z-index: 2; width: 100%; }
 
-.hero .intro-text { 
-    font-size: clamp(0.9rem, 3vw, 1.2rem); 
-    letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; 
-    color: var(--primary); /* Hijau gelap */
-}
+        .hero .intro-text { 
+            font-size: clamp(0.9rem, 3vw, 1.2rem); 
+            letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; 
+            color: var(--primary);
+        }
 
-.hero h1 { 
-    font-family: 'Great Vibes', cursive; 
-    font-size: clamp(4.8rem, 16vw, 8.5rem); 
-    color: var(--primary); /* Tulisan Sambas & Fitria diubah ke hijau gelap agar kontras */
-    margin: 0; line-height: 1.1; font-weight: normal; 
-    /* Bayangan putih halus untuk memisahkan teks dari ranting/daun di background */
-    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9); 
-}
+        .hero h1 { 
+            font-family: 'Great Vibes', cursive; 
+            font-size: clamp(4.8rem, 16vw, 8.5rem); 
+            color: var(--primary); 
+            margin: 0; line-height: 1.1; font-weight: normal; 
+            text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9); 
+        }
 
-.hero .date-text { 
-    font-size: clamp(1rem, 3.5vw, 1.3rem); letter-spacing: 3px; font-family: 'Playfair Display', serif; 
-    border-top: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent); 
-    padding: 10px 30px; margin-top: 20px; font-weight: 600;
-    color: var(--text-dark); 
-    background: rgba(255,255,255,0.45); /* Efek kaca frosted terang */
-    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-    border-radius: 8px;
-}
+        .hero .date-text { 
+            font-size: clamp(1rem, 3.5vw, 1.3rem); letter-spacing: 3px; font-family: 'Playfair Display', serif; 
+            border-top: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent); 
+            padding: 10px 30px; margin-top: 20px; font-weight: 600;
+            color: var(--text-dark); 
+            background: rgba(255,255,255,0.45); 
+            backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+            border-radius: 8px;
+        }
 
-.guest-greeting { 
-    margin-top: 6vh; padding: 25px 30px; 
-    background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); 
-    border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.8); 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Shadow diperhalus */
-    width: 90vw; max-width: 450px; animation: float 4s ease-in-out infinite; 
-}
+        .guest-greeting { 
+            margin-top: 6vh; padding: 25px 30px; 
+            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); 
+            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.8); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
+            width: 90vw; max-width: 450px; animation: float 4s ease-in-out infinite; 
+        }
 
-.scroll-down { 
-    position: absolute; bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 10px; 
-    font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; 
-    color: var(--primary); font-weight: 600;
-}
+        .scroll-down { 
+            position: absolute; bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 10px; 
+            font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; 
+            color: var(--primary); font-weight: 600;
+        }
 
-.scroll-down svg { 
-    width: 24px; height: 24px; color: var(--accent); animation: bounceDown 2s infinite; 
-}
-	   
+        .scroll-down svg { 
+            width: 24px; height: 24px; color: var(--accent); animation: bounceDown 2s infinite; 
+        }
+        
         /* =========================================
            7. COUPLE SECTION (Fix Foto Terpotong Dahi)
            ========================================= */
@@ -278,7 +267,6 @@
         .couple-wrapper { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; margin-top: 50px; }
         .person { flex: 1 1 300px; display: flex; flex-direction: column; align-items: center; }
         
-        /* FIX: Object-position disesuaikan agar fokus ke wajah/tengah atas, mencegah dahi terpotong */
         .person-img-wrapper { width: 220px; aspect-ratio: 1 / 1; border-radius: 50%; border: 6px solid var(--secondary); margin-bottom: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); overflow: hidden; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color); }
         .person-img-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; transition: var(--transition-smooth); }
         .person-img-wrapper:hover img { transform: scale(1.08); filter: brightness(1.05); }
@@ -320,13 +308,12 @@
         .gallery-item:hover img { transform: scale(1.08); }
 
         /* =========================================
-           10. GIFT & RSVP (Fix Sizing & UI)
+           10. GIFT & RSVP
            ========================================= */
         .gift-container { margin-top: 35px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
         .gift-card { background: rgba(255,255,255,1); padding: 40px 30px; border-radius: 15px; box-shadow: var(--shadow-soft); text-align: left; margin: 0; width: 100%; max-width: 420px; border-top: 5px solid var(--accent); }
         .bank-logo { height: 40px; object-fit: contain; margin: 0 0 25px 0; display: block; max-width: 100%; }
         
-        /* FIX: Menggunakan clamp agar rekening proporsional di HP */
         .rek-number { font-size: clamp(1.2rem, 5vw, 1.6rem); font-family: 'Playfair Display', serif; font-weight: bold; letter-spacing: 2px; margin: 15px 0 5px; word-wrap: break-word; color: var(--text-dark);}
         .rek-name { font-size: 1rem; color: #666; margin-bottom: 30px; font-weight: 500; }
         
@@ -343,7 +330,6 @@
         button[type="submit"]:hover:not(:disabled) { background-color: #2e3917; transform: translateY(-2px); }
         button[type="submit"]:disabled { background-color: #95a5a6; cursor: not-allowed; box-shadow: none; transform: none;}
         
-        /* BUKU TAMU & AVATAR UPDATES */
         .guestbook-wrapper { max-width: 650px; margin: 50px auto 0; text-align: left;}
         .guest-card { background: rgba(255,255,255,1); padding: 22px; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); border-left: 5px solid var(--accent); animation: fadeIn 0.4s ease; word-wrap: break-word;}
         
@@ -364,7 +350,72 @@
         .page-info { font-size: 0.95rem; font-weight: 600; padding: 8px 15px; border-radius: 20px; background: rgba(255,255,255,0.8); border: 1px solid #eee; }
 
         /* =========================================
-           11. RESPONSIVE MOBILE
+           11. CLOSING SECTION (NO CARD - VINTAGE STYLE)
+           ========================================= */
+        .closing-botanical {
+            position: relative;
+            min-height: 100vh;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(247, 245, 240, 0.4), rgba(247, 245, 240, 0.4)), 
+                        url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .closing-wrapper {
+            max-width: 900px;
+            z-index: 5;
+        }
+
+        .closing-thanks {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-inline: auto;
+            font-weight: 500;
+        }
+
+        .closing-salam {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .closing-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(4rem, 12vw, 7rem);
+            color: var(--primary); 
+            margin-bottom: 10px;
+            line-height: 1.1;
+            filter: drop-shadow(1px 1px 2px rgba(255,255,255,0.8));
+        }
+
+        .closing-line {
+            width: 150px;
+            height: 1.5px;
+            background: var(--accent);
+            margin: 25px auto;
+        }
+
+        .closing-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* =========================================
+           12. RESPONSIVE MOBILE
            ========================================= */
         @media (max-width: 768px) {
             section { padding: 60px 20px; }
@@ -377,84 +428,13 @@
             .verse-card { padding: 40px 20px; }
             .gift-card-main { padding: 40px 15px; }
             .rsvp-form { padding: 30px 20px; }
+            
+            .closing-botanical {
+                background-position: 70% center; 
+                padding-bottom: 100px; 
+            }
+            .closing-thanks { padding: 0 10px; }
         }
-		
-		
-		/* =========================================
-   CLOSING SECTION (NO CARD - VINTAGE STYLE)
-   ========================================= */
-.closing-botanical {
-    position: relative;
-    min-height: 100vh;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.closing-wrapper {
-    max-width: 900px;
-    z-index: 5;
-    /* Tanpa background-color, border, atau blur */
-}
-
-.closing-thanks {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    line-height: 1.6;
-    max-width: 700px;
-    margin-inline: auto;
-    font-weight: 500;
-}
-
-.closing-salam {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
-    color: var(--primary);
-    margin-bottom: 40px;
-    font-weight: 500;
-}
-
-.closing-names {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(4rem, 12vw, 7rem);
-    color: var(--primary); /* Menggunakan warna primer gelap agar kontras dengan BG terang */
-    margin-bottom: 10px;
-    line-height: 1.1;
-    filter: drop-shadow(1px 1px 2px rgba(255,255,255,0.8));
-}
-
-.closing-line {
-    width: 150px;
-    height: 1.5px;
-    background: var(--accent);
-    margin: 25px auto;
-}
-
-.closing-date {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-
-/* Optimalisasi Mobile */
-@media (max-width: 768px) {
-    .closing-botanical {
-        background-position: 70% center; /* Menggeser posisi gambar agar teks tetap di area bersih */
-        padding-bottom: 100px; /* Memberi ruang agar tidak tertutup button audio */
-    }
-    .closing-thanks {
-        padding: 0 10px;
-    }
-}
-		
     </style>
 </head>
 <body>
@@ -488,22 +468,22 @@
     </div>
 
     <section class="hero">
-    <div class="hero-content">
-        <p class="intro-text">The Wedding Of</p>
-        <h1>Sambas & Fitria</h1>
-        <p class="date-text">Senin, 1 Juni 2026</p>
-        
-        <div class="guest-greeting reveal active">
-            <p style="font-size: 0.85rem; letter-spacing: 2px; color: var(--text-dark); margin-bottom: 12px; font-weight: 600;">Hormat Kami, Kepada Bapak/Ibu/Saudara/i:</p>
-            <h2 class="script-guest-name" id="display-guest-name" style="color: var(--primary);">Tamu Kehormatan</h2>
+        <div class="hero-content">
+            <p class="intro-text">The Wedding Of</p>
+            <h1>Sambas & Fitria</h1>
+            <p class="date-text">Senin, 1 Juni 2026</p>
+            
+            <div class="guest-greeting reveal active">
+                <p style="font-size: 0.85rem; letter-spacing: 2px; color: var(--text-dark); margin-bottom: 12px; font-weight: 600;">Hormat Kami, Kepada Bapak/Ibu/Saudara/i:</p>
+                <h2 class="script-guest-name" id="display-guest-name" style="color: var(--primary);">Tamu Kehormatan</h2>
+            </div>
         </div>
-    </div>
 
-    <div class="scroll-down">
-        <span>Scroll</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-    </div>
-</section>
+        <div class="scroll-down">
+            <span>Scroll</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
     
     <main class="container">
         <section class="reveal" id="ayat">
@@ -584,7 +564,7 @@
         <h2 class="section-title">Galeri Bahagia</h2><div class="divider"></div>
         <div class="gallery">
             <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1V-AuXS5tAvifLhS0O7WVEfQFWesbkc3a&sz=w1920" alt="Foto Prewedding 1" loading="lazy"></div>
-            <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1cnKirGhuF8ANM6ETjeT-NKfh-AhTY1TB&sz=w1920" alt="Foto Prewedding 3" loading="lazy"></div>
+            <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1cnKirGhuF8ANM6ETjeT-NKfh-AhTY1TB&sz=w1920" alt="Foto Prewedding 2" loading="lazy"></div>
         </div>
     </section>
 
@@ -641,24 +621,20 @@
             </div>
         </div>
     </section>
-	
-	<section class="closing-botanical reveal" id="closing">
-    <div class="closing-wrapper">
-        <p class="closing-thanks">
-            Atas kehadiran dan do'a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
-        </p>
-        
-        <h3 class="closing-salam">Wassalamualaikum Wr. Wb.</h3>
-        
-        <h2 class="closing-names">Sambas & Fitria</h2>
-        
-        <div class="closing-line"></div>
-        
-        <p class="closing-date">Senin, 1 Juni 2026</p>
-    </div>
-</section>
+    
+    <section class="closing-botanical reveal" id="closing">
+        <div class="closing-wrapper">
+            <p class="closing-thanks">
+                Atas kehadiran dan do'a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
+            </p>
+            <h3 class="closing-salam">Wassalamualaikum Wr. Wb.</h3>
+            <h2 class="closing-names">Sambas & Fitria</h2>
+            <div class="closing-line"></div>
+            <p class="closing-date">Senin, 1 Juni 2026</p>
+        </div>
+    </section>
 
-    <footer style="background: var(--text-dark); color: white; text-align: center; padding: 50px 20px; margin-top: 40px;">
+    <footer style="background: var(--text-dark); color: white; text-align: center; padding: 50px 20px;">
         <h2 class="serif" style="margin-bottom: 10px; font-size: 2.2rem; color: var(--accent);">Sambas & Fitria</h2>
         <p style="font-size: 0.9rem; opacity: 0.7; font-family: 'Cormorant Garamond', serif; letter-spacing: 1px;">© 2026 Crafted with Love.</p>
     </footer>
