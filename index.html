@@ -292,6 +292,88 @@
             .gift-card-main { padding: 40px 15px; }
             .rsvp-form { padding: 30px 20px; }
         }
+		
+		
+		/* =========================================
+   CLOSING SECTION STYLES
+   ========================================= */
+.closing-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    /* Ganti URL gambar di bawah dengan foto prewedding bertema hutan/taman atau background vintage */
+    background: linear-gradient(rgba(247, 245, 240, 0.5), rgba(247, 245, 240, 0.7)), 
+                url('https://images.unsplash.com/photo-1518131672697-613add3467f7?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.closing-container {
+    max-width: 800px;
+    width: 100%;
+    z-index: 2;
+    padding: 60px 30px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+}
+
+.closing-thanks {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.closing-salam {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--primary);
+    margin-bottom: 25px;
+}
+
+.closing-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    color: var(--accent);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.closing-divider {
+    width: 120px;
+    height: 2px;
+    background: var(--accent);
+    margin: 20px auto;
+}
+
+.closing-date {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Penyesuaian Mobile */
+@media (max-width: 768px) {
+    .closing-section {
+        background-attachment: scroll; /* Mencegah lag di mobile */
+    }
+    .closing-container {
+        padding: 40px 20px;
+        margin: 0 10px;
+    }
+}
+		
     </style>
 </head>
 <body>
@@ -480,6 +562,24 @@
             </div>
         </div>
     </section>
+	
+	<section class="closing-section reveal" id="closing">
+    <div class="closing-container">
+        <div class="closing-content">
+            <p class="closing-thanks">
+                Atas kehadiran dan do'a restu dari Bapak/Ibu/Saudara/i sekalian, kami mengucapkan Terima Kasih.
+            </p>
+            
+            <h3 class="closing-salam">Wassalamualaikum Wr. Wb.</h3>
+            
+            <h2 class="closing-names">Sambas & Fitria</h2>
+            
+            <div class="closing-divider"></div>
+            
+            <p class="closing-date">Senin, 1 Juni 2026</p>
+        </div>
+    </div>
+</section>
 
     <footer style="background: var(--text-dark); color: white; text-align: center; padding: 50px 20px; margin-top: 40px;">
         <h2 class="serif" style="margin-bottom: 10px; font-size: 2.2rem; color: var(--accent);">Sambas & Fitria</h2>
