@@ -155,32 +155,65 @@
         .spotify-eq .bar { width: 3px; background-color: #1ed760; border-radius: 2px; }
         .spotify-btn.playing .spotify-eq .bar { animation: eqBounce 1s ease-in-out infinite; }
 
-        /* =========================================
-           6. HERO SECTION (Kualitas HD & Pencerahan)
-           ========================================= */
-        .hero { 
-			position: relative;
-			height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; 
-			/* Overlay dicerahkan menggunakan tone hangat/netral yang transparan */
-			background: linear-gradient(to bottom, rgba(247, 245, 240, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%), url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1920") center/cover no-repeat;
-			image-rendering: high-quality;
-			}
-        }
-        .hero-content { display: flex; flex-direction: column; align-items: center; z-index: 2; width: 100%; }
-        .hero .intro-text { font-size: clamp(0.9rem, 3vw, 1.2rem); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; font-weight: 500; text-shadow: 1px 1px 5px rgba(0,0,0,0.8); }
-        .hero h1 { font-family: 'Great Vibes', cursive; font-size: clamp(4.8rem, 16vw, 8.5rem); color: var(--accent); margin: 0; text-shadow: 2px 4px 12px rgba(0,0,0,0.6); line-height: 1.1; font-weight: normal; }
-        .hero .date-text { font-size: clamp(1rem, 3.5vw, 1.3rem); letter-spacing: 3px; font-family: 'Playfair Display', serif; border-top: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent); padding: 10px 30px; margin-top: 20px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); background: rgba(0,0,0,0.2); backdrop-filter: blur(2px);}
-        
-        .guest-greeting { 
-            margin-top: 6vh; padding: 25px 30px; 
-            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); 
-            border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
-            width: 90vw; max-width: 450px; animation: float 4s ease-in-out infinite; 
-        }
-        
-        .scroll-down { position: absolute; bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.9); font-weight: 500;}
-        .scroll-down svg { width: 24px; height: 24px; color: var(--accent); animation: bounceDown 2s infinite; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));}
+       /* =========================================
+   6. HERO SECTION (Warna & Kontras Disesuaikan)
+   ========================================= */
+.hero { 
+    position: relative;
+    height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
+    /* Mengubah warna dasar teks menjadi gelap agar selaras dengan BG terang */
+    color: var(--text-dark); 
+    padding: 20px; 
+    /* Gradasi dicerahkan, memberi efek warm & HD */
+    background: linear-gradient(to bottom, rgba(247, 245, 240, 0.2) 0%, rgba(247, 245, 240, 0.6) 100%), url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1920") center/cover no-repeat;
+    image-rendering: high-quality;
+}
 
+.hero-content { display: flex; flex-direction: column; align-items: center; z-index: 2; width: 100%; }
+
+.hero .intro-text { 
+    font-size: clamp(0.9rem, 3vw, 1.2rem); 
+    letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; 
+    color: var(--primary); /* Hijau gelap */
+}
+
+.hero h1 { 
+    font-family: 'Great Vibes', cursive; 
+    font-size: clamp(4.8rem, 16vw, 8.5rem); 
+    color: var(--primary); /* Tulisan Sambas & Fitria diubah ke hijau gelap agar kontras */
+    margin: 0; line-height: 1.1; font-weight: normal; 
+    /* Bayangan putih halus untuk memisahkan teks dari ranting/daun di background */
+    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9); 
+}
+
+.hero .date-text { 
+    font-size: clamp(1rem, 3.5vw, 1.3rem); letter-spacing: 3px; font-family: 'Playfair Display', serif; 
+    border-top: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent); 
+    padding: 10px 30px; margin-top: 20px; font-weight: 600;
+    color: var(--text-dark); 
+    background: rgba(255,255,255,0.45); /* Efek kaca frosted terang */
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    border-radius: 8px;
+}
+
+.guest-greeting { 
+    margin-top: 6vh; padding: 25px 30px; 
+    background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); 
+    border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.8); 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Shadow diperhalus */
+    width: 90vw; max-width: 450px; animation: float 4s ease-in-out infinite; 
+}
+
+.scroll-down { 
+    position: absolute; bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 10px; 
+    font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; 
+    color: var(--primary); font-weight: 600;
+}
+
+.scroll-down svg { 
+    width: 24px; height: 24px; color: var(--accent); animation: bounceDown 2s infinite; 
+}
+	   
         /* =========================================
            7. COUPLE SECTION (Fix Foto Terpotong Dahi)
            ========================================= */
@@ -403,22 +436,22 @@
     </div>
 
     <section class="hero">
-        <div class="hero-content">
-            <p class="intro-text">The Wedding Of</p>
-            <h1>Sambas & Fitria</h1>
-            <p class="date-text">Senin, 1 Juni 2026</p>
-            
-            <div class="guest-greeting reveal active">
-                <p style="font-size: 0.85rem; letter-spacing: 2px; color: rgba(255,255,255,0.9); margin-bottom: 12px; font-weight: 500;">Hormat Kami, Kepada Bapak/Ibu/Saudara/i:</p>
-                <h2 class="script-guest-name" id="display-guest-name" style="color: #fff; text-shadow: 1px 2px 6px rgba(0,0,0,0.5);">Tamu Kehormatan</h2>
-            </div>
+    <div class="hero-content">
+        <p class="intro-text">The Wedding Of</p>
+        <h1>Sambas & Fitria</h1>
+        <p class="date-text">Senin, 1 Juni 2026</p>
+        
+        <div class="guest-greeting reveal active">
+            <p style="font-size: 0.85rem; letter-spacing: 2px; color: var(--text-dark); margin-bottom: 12px; font-weight: 600;">Hormat Kami, Kepada Bapak/Ibu/Saudara/i:</p>
+            <h2 class="script-guest-name" id="display-guest-name" style="color: var(--primary);">Tamu Kehormatan</h2>
         </div>
+    </div>
 
-        <div class="scroll-down">
-            <span>Scroll</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-        </div>
-    </section>
+    <div class="scroll-down">
+        <span>Scroll</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </div>
+</section>
     
     <main class="container">
         <section class="reveal" id="ayat">
