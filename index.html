@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#3c4a1e">
-    <meta name="description" content="Undangan Pernikahan Muhamad Sambas & Fitria Tri Suzana - 1 Juni 2026">
-    <title>The Wedding Of - Sambas & Fitria</title>
     
+    <title>The Wedding Of - Sambas & Fitria</title>
+    <meta name="description" content="Undangan Pernikahan Muhamad Sambas & Fitria Tri Suzana - 1 Juni 2026">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://weddingsambasfitria.netlify.app/">
+    <meta property="og:title" content="The Wedding of Sambas & Fitria">
+    <meta property="og:description" content="Senin, 1 Juni 2026. Mohon doa restu dan kehadirannya dalam acara pernikahan kami.">
+    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1200">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Wedding of Sambas & Fitria">
+    <meta name="twitter:description" content="Senin, 1 Juni 2026. Mohon doa restu dan kehadirannya dalam acara pernikahan kami.">
+    <meta name="twitter:image" content="https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk&sz=w1200">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* 1. VARIABLES & RESET */
+        /* =========================================
+           1. VARIABLES & RESET
+           ========================================= */
         :root {
             --primary: #3c4a1e; --secondary: #74824a; --accent: #b58d55; 
             --bg-color: #f7f5f0; --text-dark: #2a3322; --text-light: #FFFFFF;
@@ -43,7 +57,9 @@
 
         .container { width: 100%; padding: 60px 0; }
 
-        /* 2. ANIMATIONS */
+        /* =========================================
+           2. ANIMATIONS
+           ========================================= */
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.4); } 70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes spin { 100% { transform: rotate(360deg); } }
@@ -54,7 +70,9 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition-smooth); will-change: opacity, transform; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* 3. COMPONENTS */
+        /* =========================================
+           3. UI COMPONENTS
+           ========================================= */
         .verse-card, .gift-card-main, .rsvp-form {
             background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
             border-radius: 15px; box-shadow: var(--shadow-soft); margin: 0 auto; border: 1px solid rgba(255,255,255,0.5);
@@ -67,12 +85,14 @@
         .section-title { font-size: clamp(2.2rem, 6vw, 3.5rem); color: var(--primary); margin-bottom: 15px; }
         .divider { width: 60px; height: 2px; background-color: var(--accent); margin: 0 auto 30px auto; }
 
-        /* 4. COVER SCREEN */
+        /* =========================================
+           4. COVER SCREEN (SAMPUL)
+           ========================================= */
         .welcome-screen {
             position: fixed; inset: 0; z-index: 9999; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1); will-change: transform;
             background: linear-gradient(rgba(247, 245, 240, 0.85), rgba(247, 245, 240, 0.85)), url("https://drive.google.com/thumbnail?id=1Pt50vdcbdxWYGFrr9x7eDrM9b03_sQ5Z") center/cover no-repeat;
-            padding: 12vh 20px 5vh; color: var(--text-dark);
+            padding: 12dvh 20px 5dvh; color: var(--text-dark);
         }
         .welcome-screen.slide-up { transform: translateY(-100dvh); }
         
@@ -93,18 +113,20 @@
         .cover-input:focus { border-bottom: 2px solid var(--text-dark); }
         .cover-input::placeholder { color: rgba(42, 51, 34, 0.4); font-style: italic; font-size: 1.2rem; }
         
-        .error-msg { color: #d32f2f; font-size: 0.85rem; margin-bottom: 25px; font-weight: 600; display: none; background: rgba(255,255,255,0.9); padding: 6px 12px; border-radius: 5px; border: 1px solid #d32f2f; }
+        .error-msg { color: #d32f2f; font-size: 0.85rem; margin-bottom: 25px; font-weight: 600; display: none; background: rgba(255,255,255,0.95); padding: 8px 12px; border-radius: 6px; border: 1px solid #d32f2f; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
 
         .btn-cover { 
             background: #000; color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 12px 25px; 
             display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 1rem; 
-            cursor: pointer; width: 100%; max-width: 250px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition-smooth); font-weight: 500;
+            cursor: pointer; width: 100%; max-width: 250px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition-smooth); font-weight: 600;
         }
         .btn-cover:hover { background: #333; transform: scale(1.02); }
 
         .scroll-indicator { margin-top: 35px; width: 40px; height: 40px; border: 1.5px solid #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.3); backdrop-filter: blur(5px); animation: pulse 2s infinite; color: var(--text-dark); }
 
-        /* 5. AUDIO PLAYER */
+        /* =========================================
+           5. AUDIO PLAYER
+           ========================================= */
         .spotify-btn { position: fixed; bottom: 25px; right: 25px; height: 55px; width: 55px; background-color: #282828; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; display: flex; align-items: center; cursor: pointer; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: var(--transition-smooth); overflow: hidden; will-change: width; }
         .spotify-btn.playing { width: 210px; background-color: #121212; border-color: #333; }
         .play-icon-wrapper { position: absolute; left: 0; top: 0; width: 55px; height: 55px; display: flex; justify-content: center; align-items: center; transition: all 0.3s ease; }
@@ -121,45 +143,32 @@
         .spotify-eq .bar { width: 3px; background-color: #1ed760; border-radius: 2px; }
         .spotify-btn.playing .spotify-eq .bar { animation: eqBounce 1s ease-in-out infinite; }
 
-        /* 6. REDESIGNED HERO SECTION */
+        /* =========================================
+           6. HERO SECTION
+           ========================================= */
         .hero { 
             position: relative;
             height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 20px; 
-            /* Gradient diperbarui untuk transisi halus dari transparan ke warna olive tua */
             background: linear-gradient(to bottom, rgba(42, 51, 34, 0.3) 0%, rgba(20, 25, 15, 0.8) 100%), url("https://drive.google.com/thumbnail?id=1RMHqsR7tAUcWV7wbS4Kapc5mzB9SxWEk") center/cover no-repeat;
         }
-        .hero-content {
-            display: flex; flex-direction: column; align-items: center; z-index: 2; width: 100%;
-        }
-        .hero .intro-text { 
-            font-size: clamp(0.85rem, 3vw, 1.1rem); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 5px; font-weight: 400; text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-        }
-        .hero h1 { 
-            /* Nama mempelai dibuat menonjol dengan font Latin modern & warna emas */
-            font-family: 'Great Vibes', cursive; font-size: clamp(4.5rem, 15vw, 7.5rem); color: var(--accent);
-            margin: 0; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); line-height: 1.1; font-weight: normal;
-        }
-        .hero .date-text { 
-            font-size: clamp(0.9rem, 3vw, 1.2rem); letter-spacing: 2px; font-family: 'Playfair Display', serif; 
-            border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); padding: 8px 25px; margin-top: 15px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-        }
+        .hero-content { display: flex; flex-direction: column; align-items: center; z-index: 2; width: 100%; }
+        .hero .intro-text { font-size: clamp(0.85rem, 3vw, 1.1rem); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 5px; font-weight: 400; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
+        .hero h1 { font-family: 'Great Vibes', cursive; font-size: clamp(4.5rem, 15vw, 7.5rem); color: var(--accent); margin: 0; text-shadow: 2px 4px 10px rgba(0,0,0,0.5); line-height: 1.1; font-weight: normal; }
+        .hero .date-text { font-size: clamp(0.9rem, 3vw, 1.2rem); letter-spacing: 2px; font-family: 'Playfair Display', serif; border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); padding: 8px 25px; margin-top: 15px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+        
         .guest-greeting { 
             margin-top: 50px; padding: 20px 30px; 
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); 
             border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
-            width: 90vw; max-width: 400px;
-            animation: float 4s ease-in-out infinite; /* Animasi mengambang lembut */
+            width: 90vw; max-width: 400px; animation: float 4s ease-in-out infinite; 
         }
-        .scroll-down {
-            position: absolute; bottom: 35px; display: flex; flex-direction: column; align-items: center; gap: 8px;
-            font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.8);
-        }
-        .scroll-down svg {
-            width: 20px; height: 20px; color: var(--accent);
-            animation: bounceDown 2s infinite;
-        }
+        
+        .scroll-down { position: absolute; bottom: 35px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.8); }
+        .scroll-down svg { width: 20px; height: 20px; color: var(--accent); animation: bounceDown 2s infinite; }
 
-        /* 7. COUPLE SECTION */
+        /* =========================================
+           7. COUPLE SECTION (Fix Foto Terpotong)
+           ========================================= */
         .monogram-sf { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 4.5rem); color: var(--accent); line-height: 1; margin-bottom: 20px; opacity: 0.8; }
         .surah-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 5vw, 2rem); color: var(--primary); margin-bottom: 30px; text-transform: capitalize; }
         .bismillah-text { font-family: 'serif'; font-size: clamp(1.2rem, 4vw, 1.6rem); color: var(--accent); margin-bottom: 15px; font-weight: 500; }
@@ -168,19 +177,23 @@
         
         .couple-wrapper { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-top: 40px; }
         .person { flex: 1 1 300px; display: flex; flex-direction: column; align-items: center; }
-        .person-img-wrapper { width: 200px; height: 200px; border-radius: 50%; border: 5px solid var(--secondary); margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); overflow: hidden; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color); }
+        
+        /* FIX: Rasio gambar 1:1, object-fit cover mencegah distorsi & pemotongan dahi */
+        .person-img-wrapper { width: 200px; aspect-ratio: 1 / 1; border-radius: 50%; border: 5px solid var(--secondary); margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); overflow: hidden; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color); }
         .person-img-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: sepia(0.15) brightness(0.95) contrast(1.05); transition: var(--transition-smooth); }
         
         .salam-arab { font-family: 'serif'; font-size: clamp(1.4rem, 4vw, 1.8rem); color: var(--text-dark); margin-bottom: 10px; font-weight: 500; direction: rtl; }
         .ampersand { color: var(--accent); font-size: clamp(3rem, 8vw, 4rem); margin: 0 15px; }
 
-        /* 8. EVENT & UTILITIES */
+        /* =========================================
+           8. EVENT & COUNTDOWN
+           ========================================= */
         .countdown-container { background-color: var(--primary); color: white; padding: 70px 20px; width: 100vw; margin-left: calc(50% - 50vw); }
         .countdown { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 0 auto; }
         .countdown div { background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 20px 10px; border-radius: 12px; min-width: 80px; flex: 1 1 100px; border: 1px solid rgba(255,255,255,0.2); }
         .countdown span { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: bold; font-family: 'Playfair Display', serif; }
         
-        .btn-calendar { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; margin-top: 35px; background: transparent; color: white; border: 1px solid var(--accent); border-radius: 30px; font-family: inherit; font-weight: 500; cursor: pointer; transition: var(--transition-smooth); }
+        .btn-calendar { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; margin-top: 35px; background: transparent; color: white; border: 1px solid var(--accent); border-radius: 30px; font-family: inherit; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); }
         .btn-calendar:hover { background-color: var(--accent); transform: translateY(-3px); }
 
         dialog.calendar-modal { margin: auto; padding: 30px; border-radius: 20px; border: none; border-top: 5px solid var(--primary); background: var(--bg-color); max-width: 400px; width: 90%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
@@ -194,18 +207,25 @@
         .event-card h3 { color: var(--primary); font-size: 1.6rem; margin-bottom: 15px; border-bottom: 1px solid var(--accent); display: inline-block; padding-bottom: 5px; }
         .map-container iframe { width: 100%; height: 350px; border: none; border-radius: 10px; margin-top: 20px; background-color: #e0e0e0; }
         
-        /* 9. GALLERY */
+        /* =========================================
+           9. GALLERY
+           ========================================= */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 35px; }
         .gallery-item { position: relative; width: 100%; height: 300px; border-radius: 10px; overflow: hidden; cursor: pointer; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth); filter: sepia(0.15) brightness(0.95) contrast(1.05); }
         .gallery-item:hover img { transform: scale(1.05); filter: sepia(0) brightness(1.05); }
 
-        /* 10. GIFT & RSVP */
+        /* =========================================
+           10. GIFT & RSVP (Fix Rekening HP Sizing)
+           ========================================= */
         .gift-container { margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
         .gift-card { background: rgba(255,255,255,0.95); padding: 35px 30px; border-radius: 15px; box-shadow: var(--shadow-soft); text-align: left; margin: 0; width: 100%; max-width: 400px; border-top: 4px solid var(--accent); }
         .bank-logo { height: 35px; object-fit: contain; margin: 0 0 20px 0; display: block; max-width: 100%; }
+        
+        /* FIX: Font Size Rekening Responsif (Tidak akan oversize di HP) */
         .rek-number { font-size: clamp(1.1rem, 4.5vw, 1.5rem); font-family: 'Playfair Display', serif; font-weight: bold; letter-spacing: 2px; margin: 15px 0 5px; word-wrap: break-word;}
         .rek-name { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
+        
         .btn-copy { background-color: var(--bg-color); color: var(--text-dark); border: 1px solid var(--accent); padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; font-family: inherit; transition: var(--transition-smooth);}
         .btn-wa { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: #25D366; color: white; text-decoration: none; padding: 14px 25px; border-radius: 25px; font-weight: 600; width: 100%; max-width: 350px; transition: var(--transition-smooth); }
 
@@ -216,17 +236,29 @@
         button[type="submit"] { width: 100%; padding: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); margin-top: 10px; }
         button[type="submit"]:disabled { background-color: #95a5a6; cursor: not-allowed; }
         
+        /* BUKU TAMU & AVATAR UPDATES */
         .guestbook-wrapper { max-width: 600px; margin: 40px auto 0; text-align: left;}
         .guest-card { background: rgba(255,255,255,0.95); padding: 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-left: 4px solid var(--accent); animation: fadeIn 0.4s ease; word-wrap: break-word;}
-        .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; }
+        
+        /* Flexbox untuk menata Avatar dan Nama secara berdampingan */
+        .guest-card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+        .guest-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #eee; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+        .guest-info { display: flex; flex-direction: column; align-items: flex-start; gap: 6px;}
+        .guest-info h4 { margin: 0; font-size: 1.05rem; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;}
+        
+        /* Badge Kehadiran */
+        .guest-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px;}
         .badge-hadir { background-color: #e8f5e9; color: #2e7d32; }
         .badge-absen { background-color: #ffebee; color: #c0392b; }
+        .badge-ragu { background-color: #fff3e0; color: #e65100; } /* Warna Oranye untuk Ragu-ragu */
         
         .pagination-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; }
         .pagination-controls button { background-color: var(--secondary); color: white; border: none; padding: 8px 16px; border-radius: 20px; font-family: inherit; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); }
         .page-info { font-size: 0.85rem; font-weight: 600; padding: 5px 12px; border-radius: 15px; background: rgba(255,255,255,0.7); }
 
-        /* 11. RESPONSIVE MOBILE */
+        /* =========================================
+           11. RESPONSIVE MOBILE
+           ========================================= */
         @media (max-width: 768px) {
             section { padding: 60px 20px; }
             .couple-wrapper { flex-direction: column; }
@@ -248,7 +280,7 @@
         </div>
         <div class="cover-bottom">
             <p class="cover-greeting">Kepada Yth:</p>
-            <input type="text" id="guest-name-input" class="cover-input" placeholder="Nama Tamu..." aria-label="Nama Tamu" autocomplete="off" enterkeyhint="go" minlength="3" pattern="^[a-zA-Z\s]+$">
+            <input type="text" id="guest-name-input" class="cover-input" placeholder="Nama Tamu..." aria-label="Nama Tamu" autocomplete="off" enterkeyhint="go" minlength="3" pattern="^[a-zA-Z\s]{3,}$" required>
             <p class="error-msg" id="cover-error" role="alert">❗ Mohon gunakan minimal 3 huruf. Tanpa angka/simbol.</p>
             <button class="btn-cover" id="btn-open-invitation" aria-label="Buka Undangan">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Buka Undangan
@@ -263,7 +295,7 @@
         <div class="player-content">
             <div class="vinyl"></div>
             <div class="track-info">
-                <span class="track-title">Sambas & Fitri</span><span class="track-artist">Wedding Audio</span>
+                <span class="track-title">Sambas & Fitria</span><span class="track-artist">Wedding Audio</span>
             </div>
             <div class="spotify-eq"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
         </div>
@@ -276,7 +308,7 @@
             <p class="date-text">Senin, 1 Juni 2026</p>
             
             <div class="guest-greeting reveal active">
-                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.8); margin-bottom: 5px;">Hormat Kami Kpd Bapak/Ibu/Sdr/i</p>
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.8); margin-bottom: 5px;">Hormat Kami, Kepada Bapak/Ibu/Sodara/i</p>
                 <h2 class="script-guest-name" id="display-guest-name" style="color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.4);">Tamu Kehormatan</h2>
             </div>
         </div>
@@ -294,7 +326,7 @@
                 <h2 class="surah-title">QS. Ar-Rum Ayat 21</h2>
                 <p class="bismillah-text" aria-label="Bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
                 <p class="arabic-text">وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ</p>
-                <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."</p>
+                <p class="translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."(QS. Ar-Rum Ayat 21</p>
             </div>
         </section>
         
@@ -306,12 +338,12 @@
             <div class="couple-wrapper">
                 <div class="person">
                     <div class="person-img-wrapper"><img src="https://drive.google.com/thumbnail?id=1LsHnHK78WfB_9eEKDN4RxXPNhf23njyF&sz=w800" alt="Mempelai Pria: Muhamad Sambas" loading="lazy" draggable="false"></div>
-                    <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Muhamad Sambas</h3><p style="font-size: 0.9rem; color: #555;">Putra dari Bapak Muhamad & Ibu Siti</p>
+                    <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Muhamad Sambas</h3><p style="font-size: 0.9rem; color: #555;">Putra dari Bapak Jaya & Ibu Yayah (Bekasi)</p>
                 </div>
                 <h1 class="serif ampersand" aria-hidden="true">&</h1>
                 <div class="person">
                     <div class="person-img-wrapper"><img src="https://drive.google.com/thumbnail?id=1MGIbLMLjRKKFja2C5nCkYqJ_CaQVJKsW&sz=w800" alt="Mempelai Wanita: Fitria Tri Suzana" loading="lazy" draggable="false"></div>
-                    <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Fitria Tri Suzana</h3><p style="font-size: 0.9rem; color: #555;">Putri dari Bapak Tri & Ibu Suzana</p>
+                    <h3 class="serif" style="font-size: 1.8rem; color: var(--primary);">Fitria Tri Suzana</h3><p style="font-size: 0.9rem; color: #555;">Putri dari Bapak Nana & Ibu Inah (Kuningan)</p>
                 </div>
             </div>
         </section>
@@ -348,7 +380,7 @@
             </div>
         </div>
         <p style="margin-top: 30px; font-size: 0.95rem; color: #444; max-width: 600px; margin-inline: auto;">
-            <strong>Lokasi Acara:</strong><br>Jl. Lkr. Waduk Darma, Desa Jagara, RT.01/RW.01, Dusun Manis, Darma, Kec. Darma, Kab. Kuningan, Jawa Barat 45562
+            <strong>Lokasi Acara:</strong><br>Jl. Lkr. Waduk Darma, Dusun Manis RT.01/RW.01, Desa Jagara, Kec. Darma, Kab. Kuningan, Jawa Barat 45562
         </p>
         <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15838.083756184852!2d108.3970875!3d-7.0062402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f4142f1f8b4eb%3A0xc3c5d6e2e5c8e3a2!2sJagara%2C%20Darma%2C%20Kuningan%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1714000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi Resepsi Pernikahan"></iframe></div>
     </section>
@@ -393,8 +425,9 @@
                 <label for="kehadiran">Konfirmasi Kehadiran</label>
                 <select name="kehadiran" id="kehadiran" required>
                     <option value="" disabled selected>Apakah Anda akan hadir?</option>
-                    <option value="Hadir">Ya, Saya akan hadir</option>
-                    <option value="Tidak Hadir">Maaf, saya tidak bisa hadir</option>
+                    <option value="Hadir">Oke... saya akan hadir</option>
+                    <option value="Tidak Hadir">Maaf, Saya Tidak Bisa Hadir</option>
+                    <option value="Ragu-ragu">Maaf, Saat ini masih ragu</option>
                 </select>
             </div>
             <div class="input-group">
@@ -422,7 +455,9 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // 1. SECURITY DETERRANT
+        // ==========================================
+        // 1. SECURITY DETERRANT (Mencegah Klik Kanan/Inspect)
+        // ==========================================
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.onkeydown = e => {
             if (e.key === "F12" || (e.ctrlKey && ["I", "i", "J", "j", "C", "c", "U", "u", "S", "s"].includes(e.key))) return false;
@@ -435,17 +470,19 @@
         const audio = d.getElementById("bg-music"), audioBtn = d.getElementById("audio-toggle");
         const modal = d.getElementById("calendarModal");
 
-        // 2. VALIDASI NAMA (Minimal 3 huruf, HANYA huruf dan spasi)
+        // ==========================================
+        // 2. VALIDASI NAMA KETAT (Minimal 3 Huruf, Tanpa Simbol/Angka)
+        // ==========================================
         const nameRegex = /^[a-zA-Z\s]{3,}$/;
         
-        // Membersihkan input secara real-time dari karakter selain huruf/spasi
+        // Filter input real-time: membuang karakter non-huruf secara otomatis
         guestInput.addEventListener('input', e => {
             e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
         });
 
         const bukaUndangan = () => {
             const name = guestInput.value.trim();
-            // Pengecekan ketat dengan Regex
+            // Pengecekan akhir menggunakan pola regex
             if (!nameRegex.test(name)) {
                 errorMsg.style.display = 'block';
                 guestInput.style.borderBottomColor = '#d32f2f';
@@ -460,27 +497,33 @@
             d.body.classList.add('opened');
             
             const p = audio.play();
-            if (p !== undefined) p.catch(() => console.log("Audio play diizinkan browser."));
+            if (p !== undefined) p.catch(() => console.log("Menunggu interaksi user untuk memutar audio."));
         };
 
         d.getElementById('btn-open-invitation').addEventListener('click', bukaUndangan);
         guestInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); bukaUndangan(); } });
 
-        // 3. AUDIO PLAYER UI
+        // ==========================================
+        // 3. AUDIO PLAYER UI CONTROLS
+        // ==========================================
         audio.addEventListener('play', () => audioBtn.classList.add('playing'));
         audio.addEventListener('pause', () => audioBtn.classList.remove('playing'));
         audioBtn.addEventListener('click', () => audio.paused ? audio.play() : audio.pause());
 
-        // 4. CALENDAR EXPORT (Diperbaiki format waktunya)
+        // ==========================================
+        // 4. CALENDAR EXPORT (Waktu Terstandarisasi)
+        // ==========================================
         d.getElementById("btn-show-calendar").addEventListener('click', () => modal.showModal());
         d.getElementById("closeCalendar").addEventListener('click', () => modal.close());
         d.getElementById("btn-apple-cal").addEventListener('click', () => {
-            const icsData = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Pernikahan Sambas & Fitri//ID\nBEGIN:VEVENT\nURL:https://sambas-fitri.com\nDTSTART:20260601T010000Z\nDTEND:20260601T070000Z\nSUMMARY:Pernikahan Sambas & Fitri\nDESCRIPTION:Mohon doa restu dan kehadirannya.\nLOCATION:Desa Jagara, Kuningan, Jawa Barat\nEND:VEVENT\nEND:VCALENDAR";
+            const icsData = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Pernikahan Sambas & Fitri//ID\nBEGIN:VEVENT\nURL:https://sambas-fitri.com\nDTSTART:20260601T010000Z\nDTEND:20260601T070000Z\nSUMMARY:Pernikahan Sambas & Fitria\nDESCRIPTION:Mohon doa restu dan kehadirannya.\nLOCATION:Jl. Lkr. Waduk Darma, Desa Jagara, Kuningan, Jawa Barat\nEND:VEVENT\nEND:VCALENDAR";
             const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
-            const link = d.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'Pernikahan_Sambas_Fitri.ics'; d.body.appendChild(link); link.click(); link.remove();
+            const link = d.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'Pernikahan_Sambas_Fitria.ics'; d.body.appendChild(link); link.click(); link.remove();
         });
 
+        // ==========================================
         // 5. COUNTDOWN TIMER
+        // ==========================================
         const targetDate = new Date("2026-06-01T08:00:00+07:00").getTime();
         const elDays = d.getElementById("days"), elHours = d.getElementById("hours"), elMins = d.getElementById("minutes"), elSecs = d.getElementById("seconds");
         const timer = setInterval(() => {
@@ -492,9 +535,12 @@
             elSecs.innerText = String(Math.floor((dist % 60000) / 1000)).padStart(2, '0');
         }, 1000);
 
-        // 6. COPY TO CLIPBOARD
+        // ==========================================
+        // 6. FITUR SALIN REKENING (Cross-browser fallback)
+        // ==========================================
         d.getElementById('btn-copy-rek').addEventListener('click', async function() {
-            const text = d.getElementById('rek-bri').innerText.replace(/\s+/g, ''), orig = this.innerText; // Hilangkan spasi saat disalin
+            const text = d.getElementById('rek-bri').innerText.replace(/\s+/g, ''); // Menghapus spasi agar format bank murni
+            const orig = this.innerText; 
             const success = () => { this.innerText = "Disalin! ✔️"; this.style.background = "#2a3322"; this.style.color = "white"; setTimeout(() => { this.innerText = orig; this.style.background = ""; this.style.color = ""; }, 2000); };
             try { await navigator.clipboard.writeText(text); success(); } 
             catch (err) {
@@ -503,22 +549,26 @@
             }
         });
 
-        // 7. ANIMASI SCROLL REVEAL
+        // ==========================================
+        // 7. ANIMASI SCROLL REVEAL (Intersection Observer)
+        // ==========================================
         const obs = new IntersectionObserver((entries, o) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("active"); o.unobserve(e.target); } }), { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
         d.querySelectorAll(".reveal").forEach(el => obs.observe(el));
 
-        // 8. GOOGLE SHEETS INTEGRATION & XSS PROTECTION
+        // ==========================================
+        // 8. GOOGLE SHEETS INTEGRATION (Backend) & XSS PROTECTION
+        // ==========================================
         const form = d.forms['submit-to-google-sheet'], btnKirim = d.getElementById('btn-kirim');
         const gbList = d.getElementById('guestbook-list'), pagCtrl = d.getElementById('pagination-controls');
         let allGuestData = [], currentPage = 1; const itemsPerPage = 5;
         
-        // Mencegah XSS murni dengan mengandalkan textContent bawaan DOM
+        // Mencegah XSS murni dengan mengandalkan textContent bawaan DOM. Semua output string disanitasi.
         const sanitizeHTML = str => { const div = d.createElement('div'); div.textContent = str || ""; return div.innerHTML; };
 
-        // Pengecekan Rate Limiting Sederhana (Mencegah spam form)
+        // Pengecekan Rate Limiting Sederhana (Mencegah brute-force/spamming form)
         const checkRSVPStatus = () => {
             const lastSubmit = localStorage.getItem('rsvp_time');
-            if(lastSubmit && (Date.now() - parseInt(lastSubmit) < 86400000)) { // Disable selama 24 jam setelah sukses
+            if(lastSubmit && (Date.now() - parseInt(lastSubmit) < 86400000)) { // Limit durasi 24 Jam
                 btnKirim.innerText = 'Pesan Sudah Terkirim ✔️'; btnKirim.disabled = true;
                 return true;
             }
@@ -526,13 +576,33 @@
         };
         checkRSVPStatus();
 
+        // Render Buku Tamu dengan Dinamis Avatar & 3 Badge
         const renderGB = () => {
             if(!allGuestData.length) return (gbList.innerHTML = '<p style="text-align: center; color: #888;">Belum ada ucapan.</p>', pagCtrl.style.display = 'none');
             gbList.innerHTML = ''; 
             const totalPages = Math.ceil(allGuestData.length / itemsPerPage);
             allGuestData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).forEach(g => {
-                const badge = g.kehadiran === 'Hadir' ? 'badge-hadir' : 'badge-absen';
-                gbList.innerHTML += `<div class="guest-card"><h4>${sanitizeHTML(g.nama)} <span class="guest-badge ${badge}">${sanitizeHTML(g.kehadiran)}</span></h4><p>"${sanitizeHTML(g.pesan)}"</p></div>`;
+                
+                // Logika Pewarnaan Badge Kehadiran
+                let badgeClass = 'badge-hadir';
+                let kehadiranTeks = g.kehadiran;
+                if (kehadiranTeks === 'Tidak Hadir') badgeClass = 'badge-absen';
+                if (kehadiranTeks === 'Ragu-ragu') badgeClass = 'badge-ragu';
+
+                // Pembuatan URL Avatar Inisial menggunakan UI-Avatars API
+                const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(g.nama)}&background=b58d55&color=fff&rounded=true&bold=true`;
+
+                // Render struktur HTML per Kartu Ucapan
+                gbList.innerHTML += `
+                <div class="guest-card">
+                    <div class="guest-card-header">
+                        <img src="${sanitizeHTML(avatarUrl)}" alt="Avatar" class="guest-avatar" loading="lazy">
+                        <div class="guest-info">
+                            <h4>${sanitizeHTML(g.nama)} <span class="guest-badge ${badgeClass}">${sanitizeHTML(kehadiranTeks)}</span></h4>
+                        </div>
+                    </div>
+                    <p style="margin-top: 5px; color: #444; line-height: 1.5; font-size: 0.95rem;">"${sanitizeHTML(g.pesan)}"</p>
+                </div>`;
             });
             pagCtrl.style.display = totalPages > 1 ? 'flex' : 'none';
             if (totalPages > 1) {
@@ -545,15 +615,17 @@
         d.getElementById('btn-prev').addEventListener('click', () => { currentPage--; renderGB(); gbList.scrollIntoView({behavior: 'smooth'}); });
         d.getElementById('btn-next').addEventListener('click', () => { currentPage++; renderGB(); gbList.scrollIntoView({behavior: 'smooth'}); });
 
+        // Mengambil data dari Google Script
         const fetchGB = async () => {
             try { const res = await fetch(scriptURL); allGuestData = (await res.json()).reverse(); currentPage = 1; renderGB(); } 
             catch (err) { gbList.innerHTML = '<p style="text-align:center; color:red;">Gagal memuat sistem ucapan.</p>'; }
         };
         fetchGB();
 
+        // Menghandle proses POST Data
         form.addEventListener('submit', async e => {
             e.preventDefault();
-            // Validasi Honeypot & Keamanan Tambahan
+            // Validasi Berlapis: Honeypot (bot test), Regex Nama, dan Cek Rate-Limiting
             if(d.getElementById('honeypot').value || !nameRegex.test(rsvpNamaInput.value) || checkRSVPStatus()) return;
             
             const oriText = btnKirim.innerText;
@@ -562,7 +634,7 @@
             try {
                 await fetch(scriptURL, { method: 'POST', body: new FormData(form)});
                 btnKirim.innerText = 'Berhasil ✔️'; 
-                localStorage.setItem('rsvp_time', Date.now().toString()); // Set timestamp anti-spam
+                localStorage.setItem('rsvp_time', Date.now().toString()); // Menyimpan timestamp mencegah spamming ulang
                 form.reset(); fetchGB();
             } catch (err) {
                 btnKirim.innerText = 'Gagal, Silakan Coba Lagi'; btnKirim.disabled = false;
